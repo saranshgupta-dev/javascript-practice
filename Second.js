@@ -11,7 +11,7 @@
 //     }
 //   return papa
 // }
-// jitne bhi  multi inner function hai onko ese call karo 
+// Jitne bhi  multi inner function hai Onko ese call karo 
 // dada()()()
 
 
