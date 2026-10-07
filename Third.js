@@ -1,7 +1,109 @@
-var arr = [10,20,30,40]
-for(let a = 0; a<arr.length; a++){
-   console.log(a);
-}
+// Reference Behaviour of Array 
+var arr = [10,20,30]
+var arr2 = arr
+arr2.push(45)
+console.log(arr2); // output :  [10,20,30,45] because arr2 mai 45 push kiya tha 
+console.log(arr);  // it's Shocking , output :  [10,20,30,45] 
+
+// Non-Mutating Methods in Array
+// let str = 'Sheryians Coding School'
+// let  arr = str.split(' ') 
+// console.log(arr);        // ['Sheryians','Coding', 'School']
+// var brr = arr[1].split('')
+// console.log(brr);  // ['C','o','d','i','n','g']
+// brr.reverse() 
+// console.log(brr); // ['g','n','i','d','o','C']
+// var str3 = brr.join('')
+// console.log(str3);  // 'gnidoc'
+// var str2 = arr.join(' ')    // join() array ko string mai convert kiya 'space' ke sath
+// console.log(str2);  // Sheryians Coding School
+
+// Join() + split() combine kiya 
+// let str = 'Nice to meet you after long time'
+// let a = str.split(' ')
+// console.log(a);
+// let b = a.join('-')
+// console.log(b);
+
+// join() : It is used to join array elements into a string based on a specified separator
+// let strArray = ['saransh','gupta','ji']
+// console.log(strArray.join('-'));  // output : saransh-gupta-ji
+// console.log(strArray.join(''));    // output : saranshguptaji
+// console.log(strArray.join(' '));   // output :  saransh gupta ji
+// console.log(strArray.join('_'));  // output : saransh_gupta_ji
+
+
+// split() : It is used to split a string into an array based on a space, character, or specific separator
+// var str = 'Hello saransh gupta ji'
+// // var arr = str.split(" ")
+// var arr = str.split("")
+// console.log(arr);
+
+// // indexOf() : It is used to find the index of an element in an array.
+// var arr = [5,10,15,20,25,30]
+// // var a = arr.indexOf(15) // O/P : 2
+// var a = arr.indexOf(99) // output : -1 -> because 99  is not exist in array  
+// // var a = arr.indexOf(25) // O/P : 4
+// console.log(a);
+
+// includes() : Used to check whether a specific element exists in an array or not. It returns true or false
+// var arr = [10,20,30,40,50]
+//  var re = arr.includes(30)
+//  var ree = arr.includes(60)
+//  console.log(re);
+//  console.log(ree);
+
+// concat() : used for merge two arrays
+// var arr = [1,2,3,4,5]
+// var arr2 = [10,20,30,40,50]
+//  var b = arr.concat(arr2)
+//  console.log(b);
+//  var c = arr2.concat(arr)
+//  console.log(c);
+
+// // slice()
+// var arr = [10,20,30,40,50,60]
+// //  var arr2 = arr.slice(2,4)
+// var arr2 = arr.slice(4,5)
+// console.log(arr2);
+
+// fill() , copyWithin() Methods
+// var arr = [10,20,30,40,50]
+// arr.fill(0)
+// console.log(arr);
+// arr.fill(100,1,4)
+// console.log(arr);
+
+// var arr = [11,22,33,44,55,66]
+// // arr.copyWithin(target,start)
+//  0 -> jahan paste karna hai , 3 -> kahan se copy karna start karna hai
+// arr.copyWithin(0,3)
+// console.log(arr);
+
+// var arr = [10,20,30,40,50] 
+// 30,40,50 copy kiya -> 10,20,30 ke place par paste kiya 
+// arr.copyWithin(0,2)
+// 30,40,50 copy kiya -> Or 20 ke place par paste kiya then last elements[10,30,40,50,50]
+// arr.copyWithin(1,2)
+// console.log(arr);
+
+// var arr = []
+// for(let a = 0; a<100; a++){
+//    if(a%2 == 0){
+//       arr.push(a)
+//    }
+// }
+// console.log('This is Even Numbers : ',arr);
+
+// var arr = [10,20,30,40,56,67,78]
+// for(let a = 0; a<arr.length; a++){
+//    console.log(a,arr[a]);
+// }
+
+// var arr = [10,20,30,40,56,67,78]
+// for(value of arr){
+//    console.log(value);
+// }
 
 // var arr = [55,88,22,99,11]
 // arr.push(77)
