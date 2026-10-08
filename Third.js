@@ -1,9 +1,70 @@
+// Higher Order Function  : forEach(), map(), filter(), Reduce()
+// forEach() : array iteration ke li-ye 
+// let brr = ['ajay','bittu','chhotu','shayam']
+// brr.forEach(function(val){
+//     console.log(val);
+// })
+
+let arr = [10,20,30,40,50] // ji-tne Elements hai ot-ne bar forEach Ch-ale-ga
+arr.forEach(function(elem,index){
+                // elem , index
+    console.log(elem,index);
+})
+// Anonymous Function : jis-ka koi name nhi ho-ta  
+// arr.forEach(function(){
+//     console.log('hello');
+// })
+
+// ForEach Using Arrow Function 
+// let run = ()=>{
+//     console.log('hello');
+// } 
+// arr.forEach(run)
+
+
+// map() : array ke Elements Transform kar-ega 
+// Filter() : filter ke li-ye
+// Reduce() : array ko convert in single value 
+
+
+// iteration in Arrays 
+// var arr = [10,20,30,40,50]
+// for(i = 0; i < arr.length; i++){
+//     console.log(i,arr[i]);
+// }
+
+// Extractors (Don't Modify original Array)
+// let arr = [10,20,30,40,50]
+// let newArr = arr.slice(1,3) // [20,30]
+// arr.sort((a,b) => b - a) // (a,b) => a - b Ascending &  (a,b) => b - a Descending
+// console.log(arr);
+// console.log(newArr);
+
+// let arr = [1,2,3,4]
+// arr.push(5)
+// arr.pop()
+
+// arr.shift()     // 1 Removes
+// arr.unshift(0)  // 0 Add kiya tha 
+
+// arr.splice(1,2) // index 1 se 2 Elements (2,3)
+// arr.reverse() // I think : [4,1] => Actual O/P : [4,0]
+// console.log(arr);
+
 // Reference Behaviour of Array 
-var arr = [10,20,30]
-var arr2 = arr
-arr2.push(45)
-console.log(arr2); // output :  [10,20,30,45] because arr2 mai 45 push kiya tha 
-console.log(arr);  // it's Shocking , output :  [10,20,30,45] 
+// var arr = [10,20,30,40]
+// // var arr2 = [arr[0],arr[1],arr[2]]
+// var arr2 = [...arr] // it is called Spread Operator
+// arr2.push(76)
+// console.log(arr2);
+// console.log(arr);
+
+// var arr = [10,20,30]
+// // var arr2 = arr
+// var arr2 = [...arr] // arr ki copy but new array object create karega arr2 ke liye 
+// arr2.push(45)
+// console.log(arr2); // output :  [10,20,30,45] because arr2 mai 45 push kiya tha 
+// console.log(arr);  // it's Shocking , output :  [10,20,30,45] 
 
 // Non-Mutating Methods in Array
 // let str = 'Sheryians Coding School'
