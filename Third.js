@@ -1,15 +1,160 @@
 // Higher Order Function  : forEach(), map(), filter(), Reduce()
+// Reduce() : array ko convert in single value 
+// var arr = [1000,800,5000,10000]
+// var sum = arr.reduce(function(acc,val){
+//                          //   0 , 1000
+//     console.log('Accumulator :',acc);
+//     console.log('Current Value :',val);
+
+//      return acc + val
+// },0)
+// console.log("Final sum:",sum);
+
+// var arr = [1000,800,5000,10000]
+// var max = arr.reduce(function(acc,val){
+//     if(val>acc){
+//         return val
+//     }
+//     return acc
+// })
+// console.log(max);
+// var sum = arr.reduce(function(acc,val){
+//     return acc + val
+// })
+// console.log(sum);
+
+
+// Map() : ke li-ye code
+// var arr = [56,78,45,68,33,87]
+//   map mai:[T, T, F, T, F, T] <- Output
+// filter mai:[56,78,68,87]     <- Output
+// var arr2 = arr.map(function(elem){
+//    return elem>50
+// })
+// console.log(arr2);
+
+// var nam = ['aman','basundi','chintu','dev']
+// var out1 = nam.map(function(elem){
+//     return elem.toUpperCase()
+// }) 
+// console.log(out1);
+
+// filter() : ke liye code
+// var arr = ['aman','ajay','anshul','anju','rohit','kiran','akash']
+//  var brr = arr.filter(function(elem){
+//     return elem.startsWith('a')
+// })
+// console.log(brr);
+
+// var arr2 = arr.filter(function(elem){
+//    return elem>50
+// })
+// console.log(arr2);
+
+// var out2 = nam.filter(function(elem){
+//     // return elem.includes('a')
+//     return elem.includes('i')
+// })
+// console.log(out2);
+
+// Filter() : filter-at-ion ke li-ye
+// var marks = [22,30,48,60,75,80,85]
+// var finalMarks = marks.filter((elem)=>{
+//  return elem >33
+// })
+// console.log(finalMarks);
+
+// var arr = [24,31,53,-8,-3,-6,54,5,67]
+// var arr2 = arr.filter(function(elem){
+//     // return elem > 0 // [24, 31, 53, 54, 5, 67]
+//     return elem < 0  // [-8, -3, -6]
+// })
+// console.log(arr2);
+
+// map() : array ke Elements Transform kar-ega 
+// var arr = [11,22,33,44,55]
+// var arr2 = arr.map(function(elem){
+//         if(elem % 2 == 0){
+//             return elem      // 22, 44 => 2-Elements only
+//         }else{
+//             return elem + 1  // 11+1=12 , 33+1=34, 55+1=56  => 3-Elements
+//         }
+// })
+// console.log(arr2);
+
+// var arr = [10,20,30,40]
+// var brr = arr.map(function(elem){
+//     // console.log(elem); 
+//     return 10.     // 10,10,.... array.length tak
+// })
+// console.log(brr);
+
+// var users = ['Saransh','Sarthak', 'Shreya','Sahil','Harshita']
+// var castUser = users.map(function(name){
+//         // return name + ' Gupta '
+//         //  return name.length   // length of name(count) 
+//         // return name.substring(0,4) // it used to find substring of name
+// })
+// console.log(castUser);
+
+// var arr  = [11,22,33,44]
+//  var brr = arr.map(function(elem){
+//     // return elem*elem    // Square of array  Elements 
+//     return elem*elem*elem   // Cube of array Elements
+// })
+// console.log(brr);
+
+// var arr = [10,20,30,40]
+// function double(x){
+//  return x*2
+// }
+// function triple(y){
+//     return y*3
+// }
+// function Square(z){
+//     return z*z
+// }
+// console.log(arr);
+// var arr2 = arr.map(double)
+// console.log(arr2);
+// var arr3 = arr.map(triple)
+// console.log(arr3);
+// var arr4 = arr.map(Square)
+// console.log(arr4);
+
+// var arr = [10,20,30,40]
+// var brr = arr.map(function(elem){
+//     // return elem // complete array return kar-dia
+//     // return elem * 2 // array ki value double kar-dia
+//     return elem * elem // array ki elements ka Square ki-ya
+
+// })
+// console.log(arr);
+// console.log('Square of Array : ',brr);
+
 // forEach() : array iteration ke li-ye 
-// let brr = ['ajay','bittu','chhotu','shayam']
+// var arr = [10,20,30,40]
+//  var arr2 = arr.forEach(function(){
+//     return 10
+// })
+// console.log(arr2); // return value console par mil-te hai
+
+// var arr = [10,20,30,40]
+// var sum = 0
+// arr.forEach(function(elem){
+//     sum =  sum + elem
+// })
+// console.log('The Sum of Array Elements : ',sum);
+
+// let brr = ['aj-ay','bit-tu','chh-otu','shay-am']
 // brr.forEach(function(val){
 //     console.log(val);
 // })
-
-let arr = [10,20,30,40,50] // ji-tne Elements hai ot-ne bar forEach Ch-ale-ga
-arr.forEach(function(elem,index){
-                // elem , index
-    console.log(elem,index);
-})
+// let arr = [10,20,30,40,50] // ji-tne Elements hai ot-ne bar forEach Ch-ale-ga
+// arr.forEach(function(elem,index){
+//                 // elem , index
+//     console.log(elem,index);
+// })
 // Anonymous Function : jis-ka koi name nhi ho-ta  
 // arr.forEach(function(){
 //     console.log('hello');
@@ -20,12 +165,6 @@ arr.forEach(function(elem,index){
 //     console.log('hello');
 // } 
 // arr.forEach(run)
-
-
-// map() : array ke Elements Transform kar-ega 
-// Filter() : filter ke li-ye
-// Reduce() : array ko convert in single value 
-
 
 // iteration in Arrays 
 // var arr = [10,20,30,40,50]
@@ -45,13 +184,13 @@ arr.forEach(function(elem,index){
 // arr.pop()
 
 // arr.shift()     // 1 Removes
-// arr.unshift(0)  // 0 Add kiya tha 
+// arr.unshift(0)  // 0 Add ki-ya tha 
 
 // arr.splice(1,2) // index 1 se 2 Elements (2,3)
 // arr.reverse() // I think : [4,1] => Actual O/P : [4,0]
 // console.log(arr);
 
-// Reference Behaviour of Array 
+// Reference Beh-av-io-ur of Array 
 // var arr = [10,20,30,40]
 // // var arr2 = [arr[0],arr[1],arr[2]]
 // var arr2 = [...arr] // it is called Spread Operator
