@@ -1,5 +1,107 @@
+// Array Destructuring
+// var arr = [10,20,30,40]
+// var [a,,c] = arr    // b ki value skip kardia
+// console.log(b);  // b is not defined
+// console.log(a,c);
+// var a = arr[0]
+// var b = arr[1] // old way
+// var c = arr[2]
+// var [a,b,c] = arr  // new way destructuring
+// var [a,b,...c] = arr // using[...]Rest operator sabhi elements fetch kiya 
+// console.log(c); // remaining values c mai a gye 
+
+// var arr = ['bijay','chandu','aman','prati'] // true because sabhi elements mai 'a' hai
+// var arr = ['bijoy','chandu','aman','preeti']  // false because only 2elem = 'a' hai 
+// var ans = arr.every(a => a.includes('a'))
+// console.log(ans);
+
+// Some() : Array ka kam se kam ek element condition satisfy karta hai ya nahi, ye check karta hai. Result true ya false hota hai.
+// var arr = ['bijoy','ramu','lakhn','rohit','chindu']
+// var ans = arr.some(a => a=='ramu')
+// // var ans = arr.some(a => a.includes('a'))
+// console.log(ans);
+
+// findIndex() : Array mein condition match karne wale pehle element ka index (position) return karta hai.
+// var arr = ['aman','bijoy','chandu','deep']
+// var ans = arr.findIndex(a => a.includes('b'))
+// console.log(ans);
+
+// var arr = [3,20,55,44,110,140]
+// var ans = arr.findIndex((e)=> e%10 == 0)    // basically element ka index batayega
+// console.log(ans);
+
+// Find() : Array mein condition match karne wala pehla element (value) return karta hai.
+// var arr = [10,20,55,44,110,140]
+// var ans = arr.find((e)=> e%10 == 0)    // only first value return karega
+// console.log(ans);
+
+// var arr = ['aman','bijoy','chandu','deep']
+// var ans = arr.find(a => a.includes('a'))
+// console.log(ans);
+
+// var arr = ['virat','rahul','anushka','alia','golu','virat']
+// var fin = arr.find(function(elem){
+//     return elem == 'virat'
+// })
+// console.log(fin);
+
 // Higher Order Function  : forEach(), map(), filter(), Reduce()
 // Reduce() : array ko convert in single value 
+// let nums = [1,2,3,4]
+// let total = nums.reduce(function(acc,val){
+//     console.log('acc =',acc);
+//     console.log('val =',val);
+//     console.log(acc + val);
+//     return acc + val
+// },0)
+// console.log(total);
+
+// var arr = [32,98,67,350,20,12]
+// var brr = arr.reduce(function(acc,val){
+// if(val>acc){
+//     return val
+// }
+// return acc
+// },0)
+// console.log(brr)
+
+// var arr = [10,20,30,40]
+//  var brr = arr.reduce(function(acc,val){
+//     // return acc + val
+//     return acc * val    // because initial value = 0 hai 
+// // },0)
+// },1)
+// console.log(brr);
+
+// var arr = [10,20,30,40]
+// var brr = arr.reduce(function(acc,val){
+//    console.log(acc);
+//    return acc + 2  // return value is acc ban jate hai
+// },0)
+// console.log(brr);
+
+// var arr = [12,99,46,76,5]
+// var brr = arr.reduce(function(acc,val){
+//     // console.log(acc);  // accumulator = 12 
+//     console.log(val);     // val = [12,99,46,76,5]
+// },0 )      // acc = 0  
+
+// var arr = ['apple','banana','apple','mango','banana','apple']
+//  var abc = arr.reduce((acc,val)=>{
+//     acc[val] = (acc[val] || 0) + 1;
+//     return acc
+// },{})
+// console.log(abc);
+
+// var arr = [1000,500,700,800,10000]
+// var sum = arr.reduce(function(acc,val){
+//     console.log("acc = ",acc);
+//     console.log("val = ",val);
+
+//     return acc + val
+// },0)
+// console.log('sum = ',sum);
+
 // var arr = [1000,800,5000,10000]
 // var sum = arr.reduce(function(acc,val){
 //                          //   0 , 1000
@@ -25,6 +127,16 @@
 
 
 // Map() : ke li-ye code
+// Arrow Function 
+// let prices = [100,200,300]
+// let taxed = prices.map(p => p * 1.18)
+// console.log(taxed);
+// Normal Function 
+// let prices = [100,200,300]
+// let taxed = prices.map(function(p){
+//     return p * 1.18 // price ka 18% nikala
+// })
+
 // var arr = [56,78,45,68,33,87]
 //   map mai:[T, T, F, T, F, T] <- Output
 // filter mai:[56,78,68,87]     <- Output
@@ -40,6 +152,12 @@
 // console.log(out1);
 
 // filter() : ke liye code
+// let nums = [1,2,3,4]
+// let even = nums.filter(function(n){
+//     return n%2 === 0
+// })
+// console.log(even);
+
 // var arr = ['aman','ajay','anshul','anju','rohit','kiran','akash']
 //  var brr = arr.filter(function(elem){
 //     return elem.startsWith('a')
@@ -133,6 +251,11 @@
 // console.log('Square of Array : ',brr);
 
 // forEach() : array iteration ke li-ye 
+// let nums = [1,2,3,4]
+// let ite  = nums.forEach(function(n){
+//      console.log(n);
+// })
+
 // var arr = [10,20,30,40]
 //  var arr2 = arr.forEach(function(){
 //     return 10
