@@ -1,3 +1,106 @@
+// Practice Zone 
+// 01 : Create an array of student names and print each
+// var arr = ['saransh','sourabh','rahul','rajul','neeraj']
+// var ans = arr.forEach(function(elem){
+//     // console.log(elem);
+// })
+// console.log(ans);
+
+// 02 : Filter even numbers from an array
+// var arr = [1,2,3,4,5,6]
+// var ans = arr.filter(a => a%2===0)
+// console.log(ans);
+
+// 03 : Map prices to include GST (18%)
+// var arr = [100,200,300,400]
+// var ans = arr.map(a=> a*1.18) // every element mai 18% + ho jayega
+// console.log(ans);
+
+// 04 : Reduce salaries to calculate total payroll
+// var salaries = [10000,20000,30000,45000]
+// var payroll = salaries.reduce((acc,val)=> acc + val)
+// console.log(payroll);
+
+// 05 : Find the first student with grade A
+// var student = [
+//     { name : 'Rahul', Grade : 'B'},
+//     { name : 'Sonam' ,Grade : 'C'},
+//     { name : 'Saransh', Grade : 'A'},
+//     { name : 'sakshi' ,Grade : 'A+'}
+// ]
+// var ans = student.find(a => a.Grade === 'A')
+// console.log(ans);
+
+// 06 : Write a function to reverse an array
+// var arr = [23,45,67,89,98]
+// var rev = arr.reverse(function(elem){
+//     return elem
+// })
+// console.log(rev);
+                  //Parameter
+// function reverseArray(arr){
+//     return arr.reverse()     // O/P : [70, 60, 50, 40, 30]
+// }
+// console.log(reverseArray([30,40,50,60,70])) // arr = [30,40,50,60,70]
+
+// 07 : Sort array of ages in ascending order
+// let ages = [34, 41, 27, 25, 87,12,21 ];
+// let ans = ages.sort((a,b)=> a - b)
+// console.log(ans);
+
+// 08 : Destructure first two elements of an array
+// var [first,second] = ['pehla element','dusra element']
+// console.log(first);
+// console.log(second);
+
+// 09 : Use some() to check if any student failed
+// var marks = [76,87,45,30,43]  // 30 == 34 kardia output : false 
+// var result = marks.some(find => find<33) // 30 < 33 yes
+// console.log(result);  // output : true 
+
+// 10 : Use spread to copy and add new item
+// var sp = [10,20,30,40]
+// var result = [45,...sp,100] // first : 45 , last : 100 add kar dega
+// // [...sp] is spread operator used to copy array and put it into new array
+// console.log(result);   // output : [45, 10, 20, 30, 40, 100]
+
+// Destructuring -->
+// let [first, second,third] = ["aman", "bijoy", "komal"];
+// console.log(first);
+// console.log(second);
+// console.log(third);
+// Spread -->
+// let nums = [1,2,3,4,5]
+// let newArr = [23,...nums,101] // spread array copy & add elements 
+// console.log(newArr);
+// sort() -->
+// var arr = [10,2,5,9]
+// var ans = arr.sort() // wrong output dega without compareFn
+// var ans = arr.sort((a,b)=> a - b) // Ascending order mai output
+// var ans = arr.sort((a,b)=> b - a) // Descending order mai output
+// console.log(ans);
+
+
+
+// var arr = [1,2,3,4]
+// var ans = arr.find(a => a>2) // 3,4 greater hai but single element return karega
+// var ans = arr.every(a => a >0)  // true because sabhi greater hai
+// var ans = arr.some(a => a>3).  // true because  4 > 3  ek element sirf hai 
+// console.log(ans);
+
+// const arr = [10,20,30] // const hone ke bad bhi ye operation perform ho rahe hai 
+// arr[0] = 99
+// arr.push(100)
+// arr.push(23)
+// arr.pop()
+// console.log(arr); 
+
+// var arr = [10,22,33,40,50]
+// var ans = arr.find(a => a%2 == 0) // first element which is divisible by 2 hai 
+// console.log(ans);
+// var bns = arr.every(a => a%2 == 0) // Result false because 33 divsion mai 0 nhi ayega
+// console.log(bns);
+
 // Array Destructuring
 // var arr = [10,20,30,40]
 // var [a,,c] = arr    // b ki value skip kardia
