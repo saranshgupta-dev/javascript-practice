@@ -1,5 +1,31 @@
 // Object's
-to
+let student = {
+    name: "Saransh",
+    age: 22,
+    city: "Indore"
+};
+
+console.log(student.name);
+console.log(student["age"]);
+
+let student2 = {
+    name: "Saransh",
+    age: 22
+};
+
+student.college = "SAIT";
+
+console.log(student);
+
+let student3 = {
+    name: "Saransh",
+    age: 22,
+    city: "Indore"
+};
+
+delete student.city;
+
+console.log(student);
 let user = {
     name : 'Virat Kohli',
     age : 37,
