@@ -1,17 +1,39 @@
 // Object's
-let stu = {
-    name : 'saransh gupta',
-    age : 22,
-    isHandsome : true,
-    skills : ['HTML','CSS','JAVASCRIPT'],
-    colleage : {
-        name : 'Sri. Aurobindo Institute of Technology',
-        totalStudents : 500,
-        courses : ['Web Dev','Data Science','CyberSecurity']
-    }
-}
-// 500 - 22 = 478 + 'CyberSecurity' chances for concatenation 
-console.log((stu.colleage.totalStudents - stu.age)+ stu.colleage.courses[2]); // 478CyberSecurity
+
+// Object ke andar object,function And  array 
+// let obj = {
+//     name : 'chitthi',
+//     ram : '20mb',
+//     age : 1,
+//     isWorking : false,
+//     skills : ['fight','walk','dance'],
+//     creater : {
+//         name : 'vashi',
+//         age : 40,
+//         isIntelligent : true,
+//     },
+//     sayHi : function(){
+//      console.log('Hello I am chitthi Robot.');
+//      return "it's function"
+//     }
+// }
+// console.log(obj.skills); 
+// console.log(obj.creater); // two objects
+// console.log(obj.sayHi()); // ese function call karenge 
+
+// let stu = {
+//     name : 'saransh gupta',
+//     age : 22,
+//     isHandsome : true,
+//     skills : ['HTML','CSS','JAVASCRIPT'],
+//     colleage : {
+//         name : 'Sri. Aurobindo Institute of Technology',
+//         totalStudents : 500,
+//         courses : ['Web Dev','Data Science','CyberSecurity']
+//     }
+// }
+// // 500 - 22 = 478 + 'CyberSecurity' chances for concatenation 
+// console.log((stu.colleage.totalStudents - stu.age)+ stu.colleage.courses[2]); // 478CyberSecurity
 // console.log(stu)    // first object
 // console.log(stu.skills) // first object with first array
 // console.log(stu.colleage) // first object with second object
