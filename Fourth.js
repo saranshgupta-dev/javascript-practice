@@ -1,39 +1,102 @@
 // Object's
-let student = {
-    name: "Saransh",
-    age: 22,
-    city: "Indore"
-};
-
-console.log(student.name);
-console.log(student["age"]);
-
-let student2 = {
-    name: "Saransh",
-    age: 22
-};
-
-student.college = "SAIT";
-
-console.log(student);
-
-let student3 = {
-    name: "Saransh",
-    age: 22,
-    city: "Indore"
-};
-
-delete student.city;
-
-console.log(student);
-let user = {
-    name : 'Virat Kohli',
-    age : 37,
-    team : 'INDIA',
-    isMarried : true,
-    Array : [10,20,30]    // yes ek array store ho sakta hai object ke andar
+let stu = {
+    name : 'saransh gupta',
+    age : 22,
+    isHandsome : true,
+    skills : ['HTML','CSS','JAVASCRIPT'],
+    colleage : {
+        name : 'Sri. Aurobindo Institute of Technology',
+        totalStudents : 500,
+        courses : ['Web Dev','Data Science','CyberSecurity']
+    }
 }
-console.log(user);
+// 500 - 22 = 478 + 'CyberSecurity' chances for concatenation 
+console.log((stu.colleage.totalStudents - stu.age)+ stu.colleage.courses[2]); // 478CyberSecurity
+// console.log(stu)    // first object
+// console.log(stu.skills) // first object with first array
+// console.log(stu.colleage) // first object with second object
+// console.log(stu.colleage.courses) // first object with second object or second array
+
+// Object with Object
+// let user = {
+//     name : 'Virat Kohli',
+//     age : 36,
+//     team : 'India',
+//     isMarried : true,
+//     skills : ['Batting','Dancing','Fielding'],
+//     spouse:{
+//       name:'Anushka Sharma',
+//       profession : 'Acting',
+//       age : 30
+//     }
+// }
+// // console.log(user);
+// console.log(user.spouse);
+// console.log(user.spouse.name);
+// console.log(user.spouse.profession);
+
+// it is simply object ke andar Array store kiya skills mai 
+// let user = {
+//     name : 'Virat Kohli',
+//     age : 36,
+//     team : 'India',
+//     isMarried : true,
+//     skills : ['Batting','Dancing','Fielding']
+// }
+// console.log(user);
+// console.log(user.skills)      // array(3) ['Batting','Dancing','Fielding']
+// console.log(user.skills[0])    // o/p : Batting
+
+// let users = [
+//     {id : 1, name:'aman'},
+//     {id : 2, name:'rahul'},
+//     {id : 1, name:'aman sharma'},
+//     {id : 3, name:'priya'},
+//     {id : 2, name:'rahul verma'}
+// ]
+// let result = [];
+// // some() : check karta hai ki Array mai kam se kam ek elements condition ko satisfy karta hai ya nhi   
+// users.forEach(user => {
+//     let exists = result.some(item => item.id === user.id)
+
+//     if(!exists){
+//         result.push(user)
+//     }
+// })
+// console.log(result);
+
+// let student = {
+//     name: "Saransh",
+//     age: 22,
+//     city: "Indore"
+// };
+// console.log(student.name);
+// console.log(student["age"]);
+
+// let student2 = {
+//     name: "Saransh",
+//     age: 22
+// };
+// student2.college = "SAIT";
+// console.log(student2);
+
+// let student3 = {
+//     name: "Saransh",
+//     age: 22,
+//     city: "Indore"
+// };
+// delete student3.city;
+// console.log(student3);
+
+// let user = {
+//     name : 'Virat Kohli',
+//     age : 37,
+//     team : 'INDIA',
+//     isMarried : true,
+//     Array : [10,20,30]    // yes ek array store ho sakta hai object ke andar
+// }
+// console.log(user);
+
 // let userName = prompt('Enter Your Name ')
 // let age = Number(prompt('Enter your age'))
 // let  city = prompt('Enter your city')
