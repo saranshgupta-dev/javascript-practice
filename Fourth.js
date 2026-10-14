@@ -1,5 +1,55 @@
 // Object's
 
+// console.log()  sirf print karta return value undefined rehte hai 
+// console => is a Object 
+// log() => ek method hai 
+// console.log(typeof console);
+// agar  aap console mai console.log(); likhne ka means hai 
+
+// teeno same hai 
+// 01 : console.log(console.log('hello')) // output : undefined 
+// 02 : let a = console.log('hello');
+// // object ke andar bana hua function hai jo kuch return nhi kar raha hai 
+// console.log(a);
+
+// 03 : let obj2 = {
+//     greet: function(){
+//         console.log('hello');
+//     }
+// }
+// console.log(obj2.greet());  // output : hello  undefined(function kuch return nhi kar raha) 
+
+// let maths = {
+//     add:(a,b)=>{
+        // return a + b
+//     }
+//     mul:(a,b) =>{
+//         return a * b
+//     },
+//     square:(a) =>{
+//         return a * a
+//     },
+//     cube : (a) =>{
+//         return a * a * a
+//     }
+// }
+// console.log(maths.add(16,4)); // 16 + 4 = 20 
+// console.log(maths.mul(16,4)); // 16 * 4 = 64
+// console.log(maths.square(16)); // 16 * 16 = 256
+// console.log(maths.cube(16));  // 16 * 16 * 16 = 4096
+
+// objects ke andar banne wale function ko kehte hai methods 
+// methods ek function hai jo objects mai bante hai 
+// let obj = {
+//  greet:function(a){
+//  console.log('good morning ',a);
+// }
+// }
+// obj.greet('saransh')
+// obj.greet('sourabh')
+// obj.greet('balram')
+
+
 // Object ke andar object,function And  array 
 // let obj = {
 //     name : 'chitthi',
