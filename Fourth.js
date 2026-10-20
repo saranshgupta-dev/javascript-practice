@@ -1,4 +1,55 @@
 // Object's
+let user = {
+    name : 'saransh',
+    city : 'indore',
+    true : 'first'  , // isme value change ho ja rahi hai 'working'
+    age : 23
+}
+// user[name] = 'sourabh' // name change nhi hua balki alag value a gye, '':'sourabh'
+// user.name = 'sourabh' // name : 'sourabh' change ho gya 
+// user['name'] = 'sakshi' // it's working
+// user[true] = 'working' // 'first' = 'working' ho ja raha hai
+// user.true = 'hello' // it's working
+// user['true'] = 'hello2' // it's working
+// user[age] = 33  // age is not defined bata raha
+// user[city] = 'Bhopal' // city is not defined
+// user['city'] = 'Bhopal'  // it is working
+user.city = 'Jabalpur'     // it's working
+
+console.log(user);
+
+// Js mai Array ko objects ki tarah treat kiya jata hai 
+// let arr = [10,20,30]
+// arr['name'] = 40
+// arr[-1] = 60
+// arr[true] = 45
+// arr.false = 78    // -1 = 60 ke bad false = 78 aya hai
+// arr.name = 'saransh'
+// console.log(arr);
+
+// console.log(typeof([])); // objects
+
+// let greet = ()=>{
+//     return console.log('welcome');
+// }
+// let by = ()=>{
+//     return console.log('bye bye');
+// }
+// let obj = {
+//     name : 'saransh',
+//     CG : 10 > 5 ? greet : by
+// }
+// console.log(obj);
+
+// let myage = 20
+// let myage = 40
+// let obj = {
+//     name : 'saransh',
+//     age : myage > 25 ? myage : 33 
+//     // 20 > 25 ? 20 : 33  => 33
+//     // 40 > 25 ? 40 : 33 => 40
+// }
+// console.log(obj);
 
 // console.log()  sirf print karta return value undefined rehte hai 
 // console => is a Object 
