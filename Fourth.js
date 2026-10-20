@@ -1,10 +1,128 @@
+
+
+// Shallow Copy with Spread Operator
+// let obj = {
+//     name : 'Harsh',
+//     age : 44,
+//     marks : 65,
+//     colleage : {
+//         name : 'LNCT',
+//         student : 20000
+//     },
+//     skills : ['HTML','CSS','JAVA','JS']
+// }
+// let obj2 = {...obj}
+// obj.colleage.city = 'Indore' //  ye new key dono ke inner objects mai copy ho jayege
+// obj.skills.push('React') // both obj and obj2 ke inner array mai a jayege
+// obj2.name = 'Sahil ' // only obj2 mai name = sahil ayega 
+// obj.marks = 95      // only obj mai marks = 95 ayega
+// obj.colleage.name = 'IIT' // obj And obj2 dono ke inner objects mai change hoga
+// console.log(obj2);
+// console.log(obj);
+
+// Spread Operator 
+// let obj = {
+//   name : 'harsh',
+//   age : 33,
+//   marks : 45
+// }
+// let obj2 = {...obj}    // Using Spread Operator : {...objectName} object ke liye
+// obj2.name = 'saransh'  
+// obj.marks = 90     // only obj mai marks change  hue 45 = 90 
+// console.log(obj2); // only obj2 mai change hua name = 'saransh'
+// console.log(obj);   
+
+// let obj = {
+//   name : 'harsh',
+//   age : 33,
+//   marks : 45
+// }
+// let obj2 = obj    // Normal Way to copy : dono mai value change ho gye 'saransh' a gya
+// obj2.name = 'saransh'  
+// console.log(obj2);
+// console.log(obj);
+
+// let arr = [10,20,30,40]
+// let arr2 = [...arr]  // Spread operator useing for copying arr 
+// arr.push(90) // only arr2 & arr mai push hoga , sirf ek mai
+// console.log(arr);
+// console.log(arr2);
+
+// let arr = [10,20,30,40]
+// let arr2 = arr  // Normal Way for copying  
+// arr.push(45)
+// console.log(arr);
+// console.log(arr2); // Result same because dono ka same Reference hai 
+
+// Distructuring
+// Distructuring in objects 
+// let obj = {
+//     name : 'saransh',
+//     Age : 34,
+//     batch : 'Cohort3',
+//     city : 'Bhopal'
+// }
+// // let {a,b} = obj // a,b = undefined ayega because key name se access kar sakte hai
+// let {Age,...x} = obj  // direct key name se access kar sakte (distructuring)
+// console.log(Age);
+// console.log(x); // x mai (...x)Rest Operator lagaya : remaining key values key liye 
+
+// Distructuring in Array
+// let arr = [11,22,33,44]
+// // let [a,b,c,d] = arr
+// // let [b,a] = arr // b=22  a= 11
+// let [a,b,...c] = arr // here using Rest Operator for Accessing remaining element
+// console.log(c); // Remaining elements : c = 33,44
+
 // Object's
-let user = {
-    name : 'saransh',
-    city : 'indore',
-    true : 'first'  , // isme value change ho ja rahi hai 'working'
-    age : 23
-}
+// const arr = [10,20,30]
+// // Object.seal(arr)
+// Object.freeze(arr) // values update bhi nhi honge
+// // arr[3] = 99   // array is a object humne arr ko seal kar dia , new keys-values add nhi 
+// // arr.pop()  // typeError a rahe hai element delete nhi hua
+// arr[2] = 50  // values modify/Update ho jayege 30 = 50 
+// // delete arr[0] // delete bhi nhi hoga
+// console.log(arr);
+
+// Object Seal karna 
+// const obj = {
+//     name : 'lucky',
+//     age : 15,
+//     city : 'mumbai'
+// }
+// // Object.seal(obj) // yaha obj ko seal kardia
+// Object.freeze(obj) // object ruk jayega No any changes  
+// obj.name = 'Bhola'
+// // obj.isSingle = true // new key and value add nhi hoge (Sealed object mai)
+// // obj.phone = 9343632135 // it's not add in object because object was sealed
+// delete obj.name     // keys na add honge or na delete honge due to seal() 
+// console.log(obj); // seal mai value modify kar sakte hai
+
+
+// const user = {
+//     name : 'ahsb',
+//      age: 67
+// }
+// // user = 'hello' // typeError : assignment to constant variable
+// user.name = 'saransh' // andar ki values change kar sakte hai 
+
+// const groom = {
+//     name : 'salman khan',
+//     age : 60
+// }
+// const  bride = {
+//     name : 'Katrina Kaif',
+//     age : 42
+// }
+// groom.name = 'Vicky Kaushal'
+// console.log(groom.name ,' weds ',bride.name);
+
+// let user = {
+//     name : 'saransh',
+//     city : 'indore',
+//     true : 'first'  , // isme value change ho ja rahi hai 'working'
+//     age : 23
+// }
 // user[name] = 'sourabh' // name change nhi hua balki alag value a gye, '':'sourabh'
 // user.name = 'sourabh' // name : 'sourabh' change ho gya 
 // user['name'] = 'sakshi' // it's working
@@ -14,9 +132,8 @@ let user = {
 // user[age] = 33  // age is not defined bata raha
 // user[city] = 'Bhopal' // city is not defined
 // user['city'] = 'Bhopal'  // it is working
-user.city = 'Jabalpur'     // it's working
-
-console.log(user);
+// user.city = 'Jabalpur'     // it's working
+// console.log(user);
 
 // Js mai Array ko objects ki tarah treat kiya jata hai 
 // let arr = [10,20,30]
