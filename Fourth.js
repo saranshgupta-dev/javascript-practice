@@ -1,4 +1,250 @@
+// script.js = 871 , Third.js = 871 , Second.js = 311 => LOC , Fourth.js = 900
 
+// Practice Zone
+// 01 : Create an object for a book (title, author, price)
+// let book = {
+//     Title : "JavaScript Basics",
+//     Author : "Rahul Sharma",
+//     Price : 499
+// }
+// // for(let keys in book){
+// //     console.log(keys , book[keys]);  // for-in se access kiya
+// // }
+// // 02 : Access properties using both dot and bracket
+// console.log(book.Author);
+// console.log(book['Author']);
+
+//03 : Write a nested object (user with address and location)
+// let user = {
+//     name : 'saransh',
+//     age : 22,
+//     address : {
+//         city : 'Indore',
+//         state : 'Madhya Pradesh',
+//         location : {
+//             area : 'vijay nagar',
+//             pincode :452010
+//         }
+//     }
+// }
+
+// 04: Destructure name and age from a student object
+// let student = {
+//     name : 'saransh',
+//     age : 22,
+//     city : 'indore',
+//     state : 'MP'
+// }
+// let {name,age,...city} = student
+// console.log(name,age,city); // o/p : ek object mai {city,state} a jayega with their values
+
+// 05 : Loop through keys and values of an object
+// let student = {
+//     name : 'saransh',
+//     age : 22,
+//     colleage : 'SAIT'
+// }
+// for(let key in student){
+//     console.log(key , student[key]);
+// }
+
+// 06 : Convert object to array using Object.entries()
+//  let student = {
+//     name : 'saransh',
+//     age : 22,
+//     colleage : 'SAIT'
+// }
+// console.log(Object.entries(student));
+
+// 07 : Copy an object using spread operator
+// let student = {
+//     name : 'saransh',
+//     age : 22,
+//     colleage : 'SAIT'
+// }
+// let newStudent = {...student} // Spread Operator = Shallow copy 
+// console.log(newStudent);
+
+// 08 : Create a deep copy of an object with nested structure
+// let user = {
+//     name : 'saransh',
+//     age : 22,
+//     address : {
+//         city : 'Indore',
+//         state : 'Madhya Pradesh',
+//         location : {
+//             area : 'vijay nagar',
+//             pincode :452010
+//         }
+//     }
+// }
+// let copy = JSON.parse(JSON.stringify(user))
+// // JSON.stringify() : string mai convert karega
+// // JSON.parse() : string to Original form mai le jayega like : object,array,boolean
+// copy.address.location.area = 'Marimata Square'
+// console.log(copy);   // sirf copy mai changes hoga
+// console.log(user);
+
+// 09 : Use optional chaining to safely access deep values
+// let user = {
+//     name : 'saransh',
+//     age : 22,
+//     address : {
+//         city : 'Indore',
+//         state : 'Madhya Pradesh',
+//         location : {
+//             area : 'vijay nagar',
+//             pincode :452010
+//         }
+//     }
+// }
+// console.log(user?.address?.state); // Madhya Pradesh
+// console.log(user?.address?.location?.code); // undefined
+
+// 10 : Use a variable as a key using computed properties
+// let key = 'name'
+// let obj = {
+//     [key] : 'saransh' // yaha [key] use kiya
+// }
+// console.log(obj);
+
+// for-in includes inherited keys (be cautious!)
+// inherited ka matlab hai kisi doosre object se properties milna
+// for-in : Own aur inherited enumerable keys print karta hai 
+// let parent = {
+//     city : 'Indore'
+// }
+// let student = Object.create(parent)
+//     student.name = 'Rahul'
+
+// for(let key in student){
+//     console.log(key);     // keys : name , city
+// }
+
+// Computed Properties 
+// let key = 'marks'  // yaha marks name ki key banai
+// let report = {
+//     [key] : 89     // yaha key mai value assign kiya
+// }
+// console.log(report); // object print kiya
+
+// Optional Chaining 
+// let user = {
+//     name : 'saransh',
+//     address : {
+//      city : 'delhi'
+//     }
+// }
+// // ?. JavaScript ko kehta hai: agar left side ki value null ya undefined hai, toh aage property access mat karo; result undefined de do.
+// console.log(user?.address?.city); // o/p : delhi 
+// console.log(user?.profile?.email); // o/p : undefined
+
+// Shallow copy : object inside object par changes nhi karta 
+// let student = {
+//     name : 'Ravi',
+//     age : 21,
+//     isEnrolled : true,
+//     colleage : {
+//       name : 'LNCT',
+//       student : 2000
+//     }
+// }
+// let newOne = Object.assign({},student)
+// newOne.name = 'Saransh'
+// newOne.colleage.name = 'SAIT'
+// console.log(newOne);
+// console.log(student);
+
+// for-in-loop 
+// for (let keys in student){
+//     console.log(keys,student[keys]);
+// }
+// console.log(Object.keys(student));
+// console.log(Object.values(student));
+// console.log(Object.entries(student));
+
+// Object addition 
+// let obj = {
+//     a : 10,
+//     b : 20
+// }
+// console.log(obj.a + obj.b);
+
+// for-in for Object used to print key and values in objects
+// let obj = {
+//     name : 'sarthak',
+//     age : 23,
+//     city : 'bhopal'
+// }  
+// for(let a in obj){
+//     console.log(a);
+//     console.log(obj[a]); // only  a = keys names , obj[a] = values mil jayenge 
+// }
+
+// Shallow copy : Spread operator ka use karke banta hai 
+// let arr = [10,{name:'saransh',age:34},20,30]
+// let arr2 = arr
+// arr2[1].name = 'sourabh'
+// // koi bhi inner ho same to same copy ho jate hai 
+// console.log(arr2);
+// console.log(arr);
+
+// Deep Copy : it help's for make changes in inner object or Arrays Not both objects
+// let arr = [10,20,30,40]
+// let str = JSON.stringify(arr) // array ko string mai conversion
+// let copyarr = JSON.parse(str)
+// copyarr.push(101)  // only 'copyarr' mai add hoga 101
+// arr.pop()  //  only 'arr' mai 40 Remove ho jayega
+// console.log(arr);
+// console.log(copyarr);
+
+// let original = {
+//     name : 'saransh',
+//     age : 45,
+//     city : 'Bhopal',
+//     colleage : {
+//        name : 'LNCT',
+//        students : 20000
+//     },
+//     skills : ['HTML','CSS','JS']
+// } 
+// // original object ko string mai convert kiya using(JSON.stringify())
+// let str = JSON.stringify(original)
+// // 'copy' name ke object mai  string to original form mai lekar ayenge or copy kardenge using (JSON.parse())  
+// let copy = JSON.parse(str)
+// copy.colleage.name = 'SAIT' // only copy object par change hua Not in original object
+// console.log(copy);
+// console.log(original);
+
+// let a = [100,200,300,400] 
+// console.log(a);
+// let b = JSON.stringify(a) // Array to String conversion
+// console.log(b);
+// let c = JSON.parse(b) // String to Array convert
+// console.log(c);
+
+// typeof conversion of Any Object , Array 
+// let obj = {
+//     name : 'Harsh',
+//     age : 44,
+//     marks : 65,
+//     colleage : {
+//         name : 'LNCT',
+//         student : 20000
+//     },
+//     skills : ['HTML','CSS','JAVA','JS']
+// }
+// let Ano = JSON.stringify(obj) // esne pure object ko string bana diya
+// let Ano2 = JSON.parse(Ano) // Again esne string ko Object mai convert kar dia
+// console.log(Ano2);
+// console.log(typeof(Ano2)); // string to object 
+// console.log(Ano);
+// console.log(typeof(Ano)); // object to string 
+
+// let a = true
+// let b = JSON.stringify(a)
+// console.log(b);
+// console.log(typeof(b));
 
 // Shallow Copy with Spread Operator
 // let obj = {
