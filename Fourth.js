@@ -1,4 +1,239 @@
 // script.js = 871 , Third.js = 871 , Second.js = 311 => LOC , Fourth.js = 900
+function outer(){
+    var name = 'sara'
+    function inner(){
+        console.log(name);
+    }
+    inner()
+}
+outer()
+outer()
+// // Block Scope
+// {
+//     let a = 1
+//     var b = 2
+//     const c =3 
+// }
+// console.log(a); // ReferenceError : a is not define  because let ,const are block scoped
+// console.log(b); // var b = 2 Working
+// console.log(c); // ReferenceError : c is not define because let ,const are block scoped
+
+// // function Scope 
+// function test(){
+//     // var secret = 42
+//     // let secret = 42
+// }
+// console.log(secret); // Reference Error for all variable type var,let,const
+
+// it is Global Variable so access anywhere easyli
+// let appName = "Myapp" // Global
+// function show(){
+//     console.log(appName);  // accessible
+// } 
+// show()
+
+// function declaration
+// sayHi() /// koi Error nhi aye 
+// function sayHi(){
+//     console.log("hii");
+// }
+
+// function Expression 
+// sayBye()  // typeError : sayBye is not a function
+// // sayBye = undefined or calling undefined is a typeError because using var
+// // if using let or const it is ReferenceError(TDZ) instead
+// var sayBye = function (){
+// console.log("bye");
+// }
+
+// console.log(window); // Browser ka Global object
+// console.log(this);   // window object 
+// console.log(this === window); // true
+
+// function one(){
+//     two()
+//     console.log("one is done");
+// }
+// function two(){
+//     three()
+//     console.log("two is done");
+// }
+// function three(){
+//     console.log("three is done");
+// }
+// one() // LIFO = one,two,three (execute => three,two,one)
+
+// function grandParents(c){
+//     return function(b){
+//         return function(a){
+//             console.log(a);
+//             console.log(b);
+//             console.log(c);
+//         }
+//     }
+// }
+// grandParents("ca")('ba')('aa')
+
+// function users(){
+//     var username = 'Harsh'
+//     var obj = {
+//         changeUser:function(a){
+//             username = a
+//         },
+//         getUser: function(){
+//           return username
+//         }
+//     }
+//     return obj
+// }
+// let out = users()
+// out.changeUser('Ritik shinghaniya') // a = username hai So getUser = Ritik shinghaniya
+// console.log(out.getUser()); // o/p : 'Harsh'
+// // console.log(out.changeUser()); // o/p : undefined
+
+// function counter(){
+//     count = 0
+//     return function(){
+//         count++
+//         console.log(count);
+//     }
+// }
+// var inc = counter()
+// inc()
+// inc()
+
+// function parent(){
+//     var user = 'Harsh'
+
+//     function child(){
+//         var childName = 'Aman'
+//         console.log('parent -',user);
+//         console.log('child -',childName);
+
+//         function grandChild(){
+//             var grandChild = 'soham'
+//             console.log('--------');
+
+//          console.log('parent -',user);
+//          console.log('child -',childName);
+//          console.log("grandChild -",grandChild);
+//         }
+//         return grandChild
+//     }
+//     // child()
+//     return child  // code return kiya 
+// }
+// parent()()() // 1st = parent , 2nd = child, 3rd = grandChild
+// console.log(parent()); 
+// var output = parent()()
+// output()
+
+// Lexical scope : user ko dusre function mai access kar pa rahe hai 
+// function outer(){
+//     var name = 'saransh'
+
+//     return function(){
+//         console.log("username is",name);
+//     }
+// }
+// let outsider = outer()
+// // console.log(outsider);
+// outsider() // this is lexical scope
+
+// function outer(){
+//     var name = 'saransh'
+
+//     function inner(){
+//         console.log("my name is",name);
+//     }
+//    inner()
+// }
+// outer()
+
+// Scope 
+// let a = 10  // because a or b global variable hai under GEC anyware access kar sakte h. 
+// var b = 30 
+// function gero(){
+//     let age = 677
+//     var gender = 'M'
+//     console.log(age);
+//     console.log(gender);
+//     // console.log(a);
+//     // console.log(b);
+// }
+// // console.log(gender); // error because Function scoped variables
+// gero()
+// user = {
+//     name : a,
+//     name2 : b,
+// }
+// console.log(user);
+
+// {
+//     let a = 20
+//     var b = 30
+// }
+// // console.log(a);  //error : let is block scoped
+// console.log(b);    // b is accessble
+
+// Lexical Environment 
+// var user = 'vaibhav'
+// // yaha greet() ne sayHi return kiya then greet ko variable mai save kiya then variable  call karne mai sayHi() ka output mila
+// function greet(){
+//     var age = 20
+// console.log(user);
+//     function sayHi(){
+//         console.log("your age is ",age); // Lexical Environment
+//     }
+//     sayHi()
+//     // return sayHi
+// } 
+// greet()  // kuch nhi mila
+// console.log(greet()); // sayHi function ka code mila
+//  var out = greet()
+//  console.log(out);    // sayHi function ka code mila
+// out() // o/p : your age is 20
+
+// Hoisting 
+// var a = 10
+// let b = 20
+// console.log(a);
+// console.log(b);
+// console.log(c); // error:  acess before initialization
+// const c = 50
+
+// console.log(a);
+// console.log(b);
+// var a = 10
+// let b = 20
+
+// let user = 'saransh'
+// let age = 33
+// function greet(){
+//     let gender = 'male'
+//     function sayHi(){
+//         console.log(`Good Morning ${user} sir`);
+
+//     }
+//     sayHi()
+//     return 20 
+// }
+// console.log(greet());
+
+// This code is Global Execution Context 
+// let a = 10
+// let b = 20
+// function add(){      // function01 execution context : memory | code execution 
+//     let c = a + b  
+//     console.log(c);
+// } 
+// function sub(){     // function02 execution context : memory | code execution 
+//     let e = b - a
+//     console.log(e);
+// }
+// add()
+// let d = a*b
+// console.log(d);
 
 // Practice Zone
 // 01 : Create an object for a book (title, author, price)
