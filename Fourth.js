@@ -1,13 +1,135 @@
 // script.js = 871 , Third.js = 871 , Second.js = 311 => LOC , Fourth.js = 900
-function outer(){
-    var name = 'sara'
-    function inner(){
-        console.log(name);
-    }
-    inner()
-}
-outer()
-outer()
+// console.log(x);
+// var x = 10 
+
+// foo()
+// function foo(){
+//     console.log("called");
+// }
+
+// for(let i = 0 ; i <3; i++){
+//     setTimeout(() => console.log(i),0)
+// }
+
+// function make(){
+//     let secret = "hidden"
+//     return () => secret
+// }
+// const reveal = make()
+// console.log(reveal());
+
+
+
+// The classic Closure + Loop problem
+// using var 
+// for(var i = 0; i<3; i++){
+//     setTimeout(function (){ // var is function-scoped, so there is only one shared i
+//         console.log(i);
+//     },1000)
+// }  
+// Output: 3 3 3   😱  (not 0 1 2)
+// fix : 1 Using let 
+// for(let i = 0; i<3; i++){
+//     setTimeout(function (){ // using let so each loop iteration creates a new i
+//         console.log(i);
+//     },1000)
+// }
+// Output : 0,1,2
+// fix : 2 IIFE (old-school-Way, before let)
+// for(var i = 0 ; i<3; i++){
+//     (function(j){
+//         setTimeout(function(){
+//             console.log(j);
+//         },1000)
+//     })(i)
+// }
+
+// function counter(){
+//     let count = 0
+//     return function(){
+//         count++
+//        return count
+//     }
+// }
+// // yaha same function ko two diffrent variables mai call kiya 
+// const c1 = counter()
+// const c2 = counter()
+// console.log(c1()); 
+// console.log(c1());
+// console.log(c2()); // c2 = independent count start hoga 
+// console.log(c2());
+
+// function outer(){
+//     let x = 10
+//     return function(){
+//         return x
+//     }
+// }
+// const fs = outer() // yaha outer() ho gya
+// console.log(fs()); // fs ke through innerFunction() call kiya
+
+// Currying : each function taken one argument 
+// function add(a){
+//     return function(b){
+//         return function(c){
+//             return a+b+c
+//         }
+//     }
+// }
+// console.log(add(5)(4)(3));
+
+// function factories : a function that bulid and return function 
+// function multiplier(factor){
+//     return function(Number){
+//         return Number * factor
+//     }
+// } 
+// const double = multiplier(2) // factor = 2
+// const triple = multiplier(3) // factor = 3
+// console.log(double(5)); // number = 5 so 2*5 = 10
+// console.log(triple(3)); // number = 3 so 3*3 = 9 
+
+// Data privacy (private variables)
+// function createBankAccount(){
+//     let balance = 0
+//     return {        // return object kiya
+//        deposit(amount){         // 1. function name is deposit karna 
+//         balance = balance + amount
+//         return balance 
+//        },
+//        getBalance(){         // 2. function name is getBalance 
+//         return balance
+//        }
+//     }
+// }
+// const acc = createBankAccount()
+// acc.deposit(100)   
+// console.log(acc.getBalance()); // balance = 0 se 100 hua hai
+// console.log(acc.balance); // undefined : truly private (variable)
+
+// Scope Chaining 
+// let a = 10
+// function outer(){
+//     let b = 20
+//     function inner(){
+//         let c = 30
+//         console.log(a,b,c); // o/p : 10 20 30
+//     }
+//     inner()
+// }
+// outer()
+ 
+// Lexical Scope : inner outer ke scope ko yaad rakhta hai after outer is executed
+// function outer(){
+//     var name = 'sara'
+//     function inner(){
+//         console.log(name);
+//     }
+//     inner()
+// }
+// outer()
+// outer()
+
 // // Block Scope
 // {
 //     let a = 1
@@ -756,6 +878,7 @@ outer()
 // console.log(user.spouse.name);
 // console.log(user.spouse.profession);
 
+
 // it is simply object ke andar Array store kiya skills mai 
 // let user = {
 //     name : 'Virat Kohli',
@@ -786,6 +909,7 @@ outer()
 // })
 // console.log(result);
 
+
 // let student = {
 //     name: "Saransh",
 //     age: 22,
@@ -793,6 +917,7 @@ outer()
 // };
 // console.log(student.name);
 // console.log(student["age"]);
+
 
 // let student2 = {
 //     name: "Saransh",
@@ -817,6 +942,7 @@ outer()
 //     Array : [10,20,30]    // yes ek array store ho sakta hai object ke andar
 // }
 // console.log(user);
+
 
 // let userName = prompt('Enter Your Name ')
 // let age = Number(prompt('Enter your age'))
