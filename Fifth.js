@@ -1,11 +1,191 @@
-// this keyword present obj ko print karva raha hai 
-let obj = {
-    firstName : 'saransh',
+let student1 = {
+    firstName : 'Saransh',
     lastName : 'gupta',
-    age : 23,
-
-    
+    getIntro : function(city,state){
+   console.log(`${this.firstName} ${this.lastName} ${city} (${state})`);
+    }
 }
+let student2 = {
+    firstName : 'Sarthak',
+    lastName : 'Sharma'
+}
+let student3 = {
+    firstName : 'Aman',
+    lastName : 'Kohli'
+}
+let student4 = {
+    firstName : 'Harshita',
+    lastName : 'Gupta'
+}
+// student1.getIntro('Katni','MP')
+//method : 01 Function Sharing Using call 
+// student1.getIntro.call(student2,'Bhopal','MP') // arguments aise pas karte hai
+// student1.getIntro.call(student3,'Patna','Bihar') 
+// method : 02 Function Sharing Using apply 
+// student1.getIntro.apply(student3,['Patna','Bihar']) 
+// student1.getIntro.apply(student2,['Bhopal','MP'])
+// method : 03 function Sharing Using bind : ek variable mai store karke call karna
+// Way : 01 
+let bd = student1.getIntro.bind(student4,'Mandala','MP')
+bd()
+// Way : 02
+student1.getIntro.bind(student3,'Patna','Bihar')() 
+
+// let student1 = {
+//     firstName : 'Sarthak',
+//     lastName: 'Sharma',
+//     Maths : 45,
+//     computer : 76,
+//     english : 96
+// }
+// let student2 = {
+//     firstName : 'Saransh',
+//     lastName : 'gupta',
+//     Maths : 87,
+//     computer : 56,
+//     english : 53
+// }
+// let student3 = {
+//     firstName : 'Salman',
+//     lastName : 'khan',
+//     Maths : 65,
+//     computer : 97,
+//     english : 94
+// }
+// let tellResult = function(){
+//     console.log(`${this.firstName} ${this.lastName}, you got ${Math.floor((this.Maths+this.computer+this.english)/3)}% marks`);
+// }
+// // let getIntro = function(){
+// //         console.log('I am ',this.firstName,this.lastName);
+// //     }
+
+// // tellResult()
+// tellResult.call(student1)
+// tellResult.call(student2)
+// tellResult.call(student3)
+
+// student1.getIntro() // Sarthak Sharma
+// student1.getIntro.call(student2) // Saransh gupta function share kiya student1 se
+// student1.getIntro.call(student3) // Salman khan  function share kiya student1 se
+
+// var obj = {
+//     name : 'saransh',
+//     age : 20,
+//     getCompany :function() {
+//         // console.log(this.name); // saransh
+//         const companyName = {
+//         name : 'Sheryians',
+//         isGood : true,
+//         greet:()=>{
+//             console.log(this.name); // saransh
+//         }
+//         // greet:function(){
+//         //     console.log(this.name); // Sheryians 
+//         // }
+//     }
+//     companyName.greet() 
+//     // console.log(companyName); // companyName ka object a jayega 
+//     }
+// }
+// // obj.company.greet() // sheryians
+// obj.getCompany()
+
+
+// let btn = document.querySelector('button')
+// let btn = document.querySelector('h1')
+// btn.addEventListener('click', function(){
+//     // console.log('hello');
+//     console.log(this); // <button>click here</button>
+//     console.log(this.tagName); // BUTTON 
+// })
+
+// let obj = {
+//     firstName : 'Saransh',
+//     lastName : 'Gupta',
+//     getIntro:function(){
+//         const sayName = function(){
+//          console.log(this);  // default window object lega not parent ka 'this'
+//         }
+//         sayName()
+//     }
+// }
+//  obj.getIntro()
+
+// function getThis(){
+//     return this
+// }
+// const obj1 = {name:'object1'}
+// const obj2 = {name:'object2'}
+
+// obj1.getThis = getThis
+// obj2.getThis = getThis
+
+// console.log(obj1.getThis());
+// console.log(obj2.getThis());
+
+// let obj = {
+//     firstName : 'Saransh',
+//     lastName : 'Gupta',
+//     getIntro:function(){
+//         const sayName = ()=>{
+//          console.log(this);   // parent se lega 'this' keyword or current obj return karega
+//         }
+//         sayName()
+//     }
+// }
+// obj.getIntro()
+// console.log(this); // browser mai hai window object milega
+
+// 'use strict'  // undefined output in stricct mode
+// function abc(){
+//     console.log(this); // this = undefined so window object return karega
+// }
+// abc()
+
+// var obj = {
+//     firstName : 'Saransh',
+//     lastName : 'Gupta',
+//     age : 33,
+//     // getIntro:function(){
+//     //     this.firstName = 'Harsh'
+//     //     //  console.log(this.firstName, this.lastName);
+//     //     // console.log(this);
+//     // }
+//     // getIntro: ()=>{
+//     //     console.log(this); // window object 
+//     // }
+// }
+// obj.getIntro()
+
+// this keyword present obj ko print karva raha hai 
+// const user = {
+//     name : 'saransh',
+//     greet(){
+//         console.log(this.name);
+//     }
+// }
+// user.greet()   // user object 
+
+// Arrow function do not have their own 'this' 
+// const user = {
+//     name : "Rahul",
+//     greet: ()=>{
+//         console.log(this.name);
+//     }
+// }
+// user.greet() // o/p : undefined
+
+// let obj = {
+//     firstName : 'saransh',
+//     lastName : 'gupta',
+//     age : 23,
+
+//     greet(){
+//         // console.log(this); // o/p :  obj object 
+//         console.log(this.firstName);  // o/p : saransh
+//     }
+// }
+// obj.greet()
 
 // let obj1 = {
 //     firstName : 'Sarthak',
