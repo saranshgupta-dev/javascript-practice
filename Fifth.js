@@ -1,22 +1,131 @@
-let student1 = {
-    firstName : 'Saransh',
-    lastName : 'gupta',
-    getIntro : function(city,state){
-   console.log(`${this.firstName} ${this.lastName} ${city} (${state})`);
+function Student(username,password){ // Constructor function
+    this.username = username
+    this.password = password
+    this.spouse = {
+        name:'Harshi',
+        age:34
     }
 }
-let student2 = {
-    firstName : 'Sarthak',
-    lastName : 'Sharma'
-}
-let student3 = {
-    firstName : 'Aman',
-    lastName : 'Kohli'
-}
-let student4 = {
-    firstName : 'Harshita',
-    lastName : 'Gupta'
-}
+Student('sara',123)
+console.log(Student.prototype); // {} constructor
+
+// let colleage = {
+//     content : 'colleage',
+//     name: 'IIT Bombay',
+//     Rating : 'A+',
+//     students : 5000,
+//     hasClubs : true,
+//     saySlogan: function(){
+//         console.log('we are Best , we are IIT');
+//     }
+// }
+// let branch = {
+//     title : 'Branch',
+//     name : 'CSE',
+//     Rating : 'A++',
+//     students : 500,
+//     subjects : ['TOC','System Design','Compiler Design']
+// }
+// let user ={
+//     name:'saransh',
+//     age: 30,
+//     marks: 95
+// }
+// user.__proto__ = branch
+// branch.__proto__ = colleage
+// console.log(user); // user ka proto branch or branch ka proto colleage 
+// // console.log(user.subjects);
+// console.log(user.hasClubs); // 
+// console.log(user.students); // o/p : 500 
+// user.saySlogan() // user inherit branch inherit colleage (that's why function running)
+
+// Prototypes 
+// let company ={
+//     name : 'Sheryians',
+//     foundingYear: 2022,
+//     students : 'Very Good',
+//     saySlogan: function(){
+//         console.log('We tech , What Matters');
+//     }
+// }
+// let user = {
+//     name : 'Sarthak',
+//     age : 33
+// }
+// // Don't do this 
+// user.__proto__ = company
+// console.log(user);   //user object ke  proto mai company object a gya 
+// console.log(user.name); // Sarthak
+// console.log(user.foundingYear); // 2022 (because company object oske proto mai hai)
+// user.saySlogan() // company obj ka function run hua through user
+// console.log(user.__proto__);
+// console.log(company.__proto__);
+// console.log(company.__proto__=== user.__proto__);
+
+
+// Object -> Object -> null
+// Array -> Array -> Object
+// function -> function -> Object
+
+// console.log(Array.prototype);
+// console.log(Array.prototype.__proto__); // same as object proto
+// console.log(Array.prototype.__proto__ === Object.prototype);  //true: array == object
+// console.log(Object.prototype);
+// console.log(Object.prototype.__proto__);
+// console.log(Function.prototype);
+// console.log(Function.prototype.__proto__ === Object.prototype); // true:function == objects
+
+// let arr = [10,20,30,40]
+// console.log(arr.__proto__); // array proto => array mai 
+// console.log(arr.__proto__.__proto__); // array proto ka proto => objects mai 
+
+// let obj = {
+//     name : 'saransh',
+//     age : 23
+// }
+// console.log(obj.__proto__); // object ka proto object 
+
+// let hello = function(){
+//     console.log('hey');
+// }
+// console.log(hello.__proto__); // ƒ () { [native code] }
+// console.log(hello.__proto__.__proto__); // objects mila
+
+// let student1 = {
+//     firstName : 'Saransh',
+//     lastName : 'gupta',
+// }
+// let student2 = {
+//     firstName : 'Sarthak',
+//     lastName : 'Sharma'
+// }
+//  let getIntro = function(city,state){
+//    console.log(`${this.firstName} ${this.lastName} ${city} (${state})`);
+//     }
+// getIntro.call(student1,'katni','MP')
+// getIntro.apply(student2,['Bhopal','MP'])
+// let Re = getIntro.bind(student1,'Maihar','MP')
+// Re()
+
+// let student1 = {
+//     firstName : 'Saransh',
+//     lastName : 'gupta',
+//     getIntro : function(city,state){
+//    console.log(`${this.firstName} ${this.lastName} ${city} (${state})`);
+//     }
+// }
+// let student2 = {
+//     firstName : 'Sarthak',
+//     lastName : 'Sharma'
+// }
+// let student3 = {
+//     firstName : 'Aman',
+//     lastName : 'Kohli'
+// }
+// let student4 = {
+//     firstName : 'Harshita',
+//     lastName : 'Gupta'
+// }
 // student1.getIntro('Katni','MP')
 //method : 01 Function Sharing Using call 
 // student1.getIntro.call(student2,'Bhopal','MP') // arguments aise pas karte hai
@@ -26,10 +135,10 @@ let student4 = {
 // student1.getIntro.apply(student2,['Bhopal','MP'])
 // method : 03 function Sharing Using bind : ek variable mai store karke call karna
 // Way : 01 
-let bd = student1.getIntro.bind(student4,'Mandala','MP')
-bd()
-// Way : 02
-student1.getIntro.bind(student3,'Patna','Bihar')() 
+// let bd = student1.getIntro.bind(student4,'Mandala','MP')
+// bd()
+// // Way : 02
+// student1.getIntro.bind(student3,'Patna','Bihar')() 
 
 // let student1 = {
 //     firstName : 'Sarthak',
