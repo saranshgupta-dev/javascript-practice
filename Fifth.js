@@ -1,13 +1,322 @@
-function Student(username,password){ // Constructor function
-    this.username = username
-    this.password = password
-    this.spouse = {
-        name:'Harshi',
-        age:34
+function MakeStudent(fname,lname,contact,isVerified){
+    this.fname = fname
+    this.lname = lname
+    this.contact = contact
+    this.isVerified = isVerified 
+    this.showProfile = function(){
+     console.log('my name is ',this.fname,this.lname);
+     console.log('my contact No. is ',this.contact);
+     console.log('is i am verified user',this.isVerified);
     }
 }
-Student('sara',123)
-console.log(Student.prototype); // {} constructor
+let student1 = new MakeStudent('saransh','gupta',9343632135,true)
+let student2 = new MakeStudent('sakshi','Gupta',89882654,false)
+let student3 = new MakeStudent('tulsi','mishra',73629282,false)
+// student1.showProfile()
+// student2.showProfile()
+// student3.showProfile()
+// console.log(student1);
+
+// Using Constructor hamne ek object create kiya
+// function CreateBook(bookName,authorName,pages){
+//     this.bookName = bookName
+//     this.authorName = authorName 
+//     this.pages = pages
+//     this.getFrontPage = function() {
+//         console.log('bookName is',this.bookName);
+//         console.log('authorName is',this.authorName);
+//         console.log('pages is ',this.pages);
+//     }
+// }
+// let book1 = new CreateBook('Sapiens','Yuvan Noah Harrari',500)
+// let book2 = new CreateBook('Rich Dad Poor Dad','Robert Kiyosaki',440)
+// let book3 = new CreateBook('HP-Prisoner of Azkaban','JK Rowling',760)
+// console.log(book1)
+// console.log(book2)
+// console.log(book3);
+// book1.getFrontPage()
+// book2.getFrontPage()
+// book3.getFrontPage()
+
+// We Use Constructor function for making multiple songs 
+// constructor function name should be pascal case Ex : CreateSong
+// function CreateSong(){
+//     this.songName = 'Cry for me ',
+//     this.albumName = 'Hurry up tommorow',
+//     this.singer = 'weekend',
+//     this.duration = 3.5,
+//     this.isLiked = true
+// }
+// let song1 = new CreateSong()
+// console.log(song1);
+
+// let song1 = {
+//     songName : 'Cry for me ',
+//     albumName : 'Hurry up tommorow',
+//     singer : 'weekend',
+//     duration : 3.5 ,
+//     isLiked : true
+// }
+// let song2 = {
+//     songName : 'Tum hi ho',
+//     albumName : 'Ashique 2',
+//     singer : 'Arigit singh',
+//     duration: 4.4,
+//     isLiked : false
+// }
+
+// This is the Example of Call , apply , bind 
+// let obj = {
+//     name : 'saransh',
+//     age : 22
+// }
+// let obj2 = {
+//     name : 'sourabh',
+//     age :24
+// }
+// let obj3 = {
+//     name : 'sakshi',
+//     age : 28
+// }
+// function sharing(city){
+// console.log(` My name is ${this.name} my  age ${this.age} `);
+// console.log(`my city is ${city}`);
+// }
+// sharing.call(obj,'katni') // call use kiya
+// sharing.apply(obj2,['indore']) // apply use kiya
+// let result = sharing.bind(obj3,'jabalpur')
+// result()
+
+// let place = {
+//     placeName : 'office',
+//     behaviour : 'professional',
+//     sayHello:function(){
+//         // console.log(this); // outer normal function outer object ko return karega
+//         const insidePlace = {
+//             placeName : 'Meeting Room',
+//             behaviour  : 'Roasting',
+//           sayHiInFriends : function(){ 
+//                 console.log(this); 
+//             },
+//             sayHiInClient : ()=>{     
+//                 console.log(this); 
+//             }
+//         }
+//         insidePlace.sayHiInFriends() // inner object : normal function
+//         insidePlace.sayHiInClient()  // outer object : arrow function
+//     }
+// }
+// place.sayHello() 
+
+// let place = {
+//     placeName : 'office',
+//     behaviour : 'professional',
+//     sayHello:function(){
+//         // console.log(this); // outer normal function outer object ko return karega
+//         const insidePlace ={
+//             placeName : 'Meeting Room',
+//             behaviour  : 'Roasting',
+// // inner ko arrow function banaya to ye parent ka lexical context lega or outer object return dega
+//             sayHi : ()=>{
+//                 console.log(this); 
+//             }
+//         }
+//         insidePlace.sayHi()
+//     }
+// }
+// place.sayHello() 
+
+// let place = {
+//     placeName : 'office',
+//     behaviour : 'professional',
+//     sayHello:function(){
+//         // console.log(this); // outer normal function outer object ko return karega
+//         const insidePlace ={
+//             placeName : 'Meeting Room',
+//             behaviour  : 'Roasting',
+//             sayHi : function(){
+//                 console.log(this); // inner normal function inner object ko return karega
+//             }
+//         }
+//         insidePlace.sayHi()
+//     }
+// }
+// place.sayHello() 
+
+// let place = {
+//     placeName : 'office',
+//     sayHello:()=>{
+//         console.log(this);
+//     }
+// }
+// place.sayHello() // using arrow function return window object
+
+// let place = {
+//     placeName : 'office',
+//     sayHello:function(){
+//         console.log(this);
+//     }
+// }
+// place.sayHello() // using normal function return current objects
+
+// let hero = {
+//     lname : 'saransh',
+//     fname : 'gupta',
+//     age : 23,
+//     // but yaha arrow function parent function ka lexical context lega jonki ek noram function hai  
+//     hello : function(){
+//     const getIntro = ()=>{
+//         console.log(this); // arrow function window object return karega 
+        
+//     }
+//     getIntro()
+// }
+// }
+// hero.hello()
+
+// let hero = {
+//     lname : 'saransh',
+//     fname : 'gupta',
+//     age : 23,
+//     // arrow function ko khud ka  lexical context nhi pata it return window object
+//     getIntro :()=>{
+//         console.log(this); // arrow function window object return karega 
+//         console.log(this.lname,this.fname);
+//     }
+// }
+// hero.getIntro()
+
+// using Normal function 
+// let hero = {
+//     lname : 'saransh',
+//     fname : 'gupta',
+//     age : 23,
+// normal function ko apna context pata hai ki mai kaha bana hun
+//     getIntro : function(){
+//         console.log(this); //current object ko return karega
+//         console.log(this.lname,this.fname);
+//     }
+// }
+// hero.getIntro()
+
+// using strict mode 
+// 'use strict'
+// console.log(this);
+// function hey(){
+//     console.log(this); // default value = undefined using strict mode
+// }
+// hey()
+// Normal mode 
+// console.log(this); // window object 
+// function hello(){
+//     console.log(this); // window object 
+// }
+// hello()
+
+// function Person(name){
+//     this.name = name 
+// }
+// Person.prototype.age = 22
+// let p1 = new Person('sourabh')
+// let p2 = new Person('saransh')
+// p1.age = 25
+// console.log(p1.age); // age = 25 own property create hue 
+// console.log(p1.hasOwnProperty('age')) // true 
+// delete p1.age.  // own property delte hue hai prototype ki nhi 
+// console.log(p1.age); // o/p : 22 (prototype se liya)
+// console.log(p2.age); // age prototype se = 22 liya 
+// console.log(p2.hasOwnProperty('age')) // false 
+
+// function Person(name){ // constructor function
+//     this.name = name
+// }
+// Person.prototype.sayHello = function(){
+//     console.log('Hello!');
+// }
+// let p1 = new Person('saransh')
+// console.log(p1);
+// p1.sayHello() // person construstor ke pas function banaya or new object mai sab inherit ho gya 
+// console.log(p1.__proto__ == Person.prototype); // true same object ko refer karte hai 
+// console.log(p1.__proto__) // {sayHello : f}
+// console.log(Object.getPrototypeOf(p1)); // {sayHello : f} <- use in industery
+
+
+// function Student(name){
+//   this.name = name
+// }
+// let s1 = new Student('Rahul')
+// // Object References : s1 and s2 both refer to the same object in memory.
+// let s2 = s1 // s1 object ke copy s2 mai a jayege 
+// s2.name = 'Saransh' // s1 or s2 dono mai change ho raha hai 
+// console.log(s1);
+// console.log(s2);
+
+// ek constructor function ki help se multiple objects create kar sakt hai
+// function person(name,age){
+//     this.name = name
+//     this.age = age
+// } 
+// let p1 = new person('saransh',23)
+// let p2 = new person('sakshi',27)
+// let p3 = new person('sourabh',24)
+// // console par object name nhi ata but constructor name a jata hai 
+// console.log(p1);
+// console.log(p2);
+// console.log(p3);
+
+// function person(name){
+//     this.name = name 
+// }
+// let f2 = new person('Saransh')
+// console.log(f2);
+// let hello = {
+//     name : 'sakshi'
+// }
+// console.log(hello);
+
+// console.log(f2.__proto__ == person.prototype);
+// console.log(f2.__proto__);
+// console.log(person.prototype);
+
+
+
+// const vehicle = {
+//     start : function(){
+//         console.log(this.name + 'start ho gyi');
+//         // console.log(typeof this); // function andar bhi output object ayega 
+//     }
+// }
+// const car = Object.create(vehicle) // car name ka ek {} object create kiya 
+// car.name = 'swift ' // car {} object mai name : 'swift' create kiya
+// console.log(car);
+// car.start() // car object se oske prototype ke start function ko call kiya 
+
+// const animal = {
+//     eats : true,
+//     walk : function(){
+//         console.log('Animal chal raha hai ');
+//     }
+// }
+// // Method : 01
+// // const dog = Object.create(animal) // dog name ka {} object create kiya
+// // Mehtod : 02
+// let dog = {}
+// dog.__proto__ = animal
+// dog.walk() // Animal chal raha hai
+// // console.log(animal); // object-methods proto
+// // dog is empty object with animal prototype 
+// console.log(dog); // {} dog ka prototype is animal object hai 
+
+// function Student(username,password){ // Constructor function
+//     this.username = username
+//     this.password = password
+//     this.spouse = {
+//         name:'Harshi',
+//         age:34
+//     }
+// }
+// Student('sara',123)
+// console.log(Student.prototype); // {} constructor
 
 // let colleage = {
 //     content : 'colleage',
