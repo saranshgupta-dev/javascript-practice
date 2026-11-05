@@ -1,17 +1,422 @@
-function MakeStudent(fname,lname,contact,isVerified){
-    this.fname = fname
-    this.lname = lname
-    this.contact = contact
-    this.isVerified = isVerified 
-    this.showProfile = function(){
-     console.log('my name is ',this.fname,this.lname);
-     console.log('my contact No. is ',this.contact);
-     console.log('is i am verified user',this.isVerified);
-    }
-}
-let student1 = new MakeStudent('saransh','gupta',9343632135,true)
-let student2 = new MakeStudent('sakshi','Gupta',89882654,false)
-let student3 = new MakeStudent('tulsi','mishra',73629282,false)
+// Static with Getter example 
+// static ko class name se call karenge 
+// class parent{
+//     static get value(){
+//         return 50
+//     }
+// }
+// class child extends parent{
+//     static show(){
+//         // super Parent ki static properties ko access karta hai.
+//         return super.value + 50
+//     }
+// }
+// child.show()
+
+// class Student{
+//     static get marks(){
+//         return 90
+//     }
+//     static show(){    // yaha get nhi lagaya 
+//         return this.marks // yaha getter call kiya without () symbol
+//     }
+// }
+// console.log(Student.show()); //call symbol use kiya
+
+// class Test {
+//     static get number(){
+//         return 100
+//     }
+// }
+// // because class name use karna or without call symbol ke (it's getter)
+// console.log(Test.number); // 100
+
+// Getter and Setter 
+// class Test {
+//     // static name = 'saransh'
+//     // static number(){ // value read karne ke liya banaya
+//     //     return 100
+//     // }
+//     get number(){ // value read karne ke liya banaya
+//         return 100
+//     }
+// }
+// let t = new Test()
+// // function he call kiya hai without using () call Symbol 
+// console.log(t.number); // 100 using getter for read values only
+// console.log(Test.name); // saransh using static properties
+// console.log(Test.number()); // 100 using static methods
+
+// let obj = {
+//     x : 10,
+//     get value(){
+//         return this.x * 2
+//     }
+// }
+// console.log(obj.value); // call aymbol use nhi kiya
+
+// let user = {
+//     _age : 20, // 15 validation pass nahi karta, isliye _age ki purani value 20 hi rahegi.
+//     set age(value){
+//         if(value>=18) this.age = value
+//     },
+//     get age(){
+//         return this._age
+//     }
+// }
+// user.age = 15
+// console.log(user.age);
+
+// Real life Example of Getter and Setter 
+// class BankAccount{
+//     constructor(balance){
+//         this._balance = balance
+//     }
+//     get balance(){
+//         return this._balance
+//     }
+//     set balance(amount){ // balance update karta hai 
+//         if(amount>=0){
+//             this._balance = amount + this.balance
+//         }else{
+//             console.log('invalid balance!');
+//         }
+//     }
+// }
+// let accountObj = new BankAccount(5000)
+// console.log(accountObj.balance); // 5000
+// accountObj.balance = 10000 // credit 10000
+// console.log(accountObj.balance); // total = 15000
+// accountObj.balance = -2000 //invalid balance (through setter) 
+// console.log(accountObj.balance); // 10000
+// accountObj.balance = 4000 // credit 4000 more 
+// console.log(accountObj.balance); // total = 19000
+
+// Setter value update karne ke liye hota hai 
+// let user = {
+//     firstName : 'Saransh',
+//     lastName : 'Gupta',
+
+//     set change(newName){
+//         this.firstName = newName // newName se firstName mai value pas ho gye
+//     }
+// }
+// // object se function call nhi value assign kar de sidha
+// user.change = 'Rahul' // newName = 'Rahul'
+// console.log(user.firstName); // firstName = Rahul 
+
+// Getter value acess karne ke liye without using () call symbol 
+// let user = {
+//     firstName : 'Saransh',
+//     lastName : 'gupta',
+
+//     // getter ka use kiya 
+//     get fullname(){
+//         return this.firstName +' '+ this.lastName
+//     }
+// }
+// console.log(user.fullname); // function call kiya without using () 
+
+// Static Methods & Static properties 
+// class MathHelper{
+//     static PI = 3.14159 // static property
+//     static add(a,b){
+//         return a+b // static mehtods
+//     }
+// }
+// console.log(MathHelper.add(2,3)); // 5
+// console.log(MathHelper.PI);
+// // through Object 
+// let m = new MathHelper()
+// console.log(m); // MathHelper {}
+// console.log(m.PI); // undefined
+// m.add(3,2) // typerror millrahi hai 
+
+// static mehtod ke andar 'this' keyword
+// class Student{
+//     static name = 'Saransh gupta ji'
+//     static check(){
+//         console.log(this.name);
+//     }
+// }
+// Student.check()
+
+// class Shopping{
+//     static shopName = 'Amazon'
+//     static discount = 20
+    
+//     static showDetails(){
+//         console.log('Shop: ',Shopping.shopName);
+//         console.log('discount: ',Shopping.discount+'%');
+//     }
+// }
+// Shopping.showDetails()
+
+// class Student {
+//    static colleage = 'SAIT indore'
+// }
+// console.log(Student.colleage); // SAIT indore 
+
+// Object se ese directely access nhi kar sakte 
+// class Student {
+//    static colleage = 'SAIT indore'
+// }
+// let s1 = new Student()
+// console.log(s1.colleage); // undefined because object ke through access nhi kar sakte
+
+// class student {
+//     static greet(){
+//         console.log('welcome to sait ');
+//     }
+// }
+// student.greet()// direct class name se call kar liya
+// let s1 = new student()
+// s1.greet() // object se call karne mai error a rahe hai 
+
+// inheritence through class with extends & super 
+// class Animal{
+//     constructor(name){
+//         this.name = name
+//     }
+//     eat(){
+//         console.log(this.name,' kha raha hai');
+//     }
+// } 
+// class dog extends Animal{
+//     constructor(name,breed){
+//         super(name)
+//         this.breed = breed
+//     }
+//     bark(){
+//         console.log(this.name ,'bhonk raha hai');
+//     }
+// }
+// let ani1 = new dog('dogesh bhai','deshi kutta')
+// ani1.bark()
+// ani1.eat()
+// console.log(ani1);
+
+// class syntax with constructor 
+// class person{
+//  constructor(name,age){
+//     this.name = name
+//     this.age = age
+//  }
+//  greet(){
+//     console.log(`hii my name is ${this.name} and my age is ${this.age}`);
+//  }
+// }
+// const p = new person('saransh',56)
+// console.log(p);
+
+// Inheritence via prototype 
+// const vehicle = {
+//     start(){
+//         console.log(this.name,' start ho gyi');
+//     }
+// }
+// // const car = new vehicle() // basically ye sirf constructor function ke liye hota hai
+// const car = Object.create(vehicle)
+// car.name = 'swift'
+// car.start()
+
+// Classical Inheritence
+// Admin want to inherit User property 
+// class User {
+//     constructor(fname,lname,contact){
+//         this.fname = fname
+//         this.lname = lname
+//         this.contact = contact
+//     }
+//     greetUser(){
+//         console.log(`welcome User ${this.fname} ${this.lname}`);
+//     }
+// }
+// // super() : parent constructor ko inherit kar lega
+// class Admin extends User{
+//   constructor(fname,lname,contact){
+//     super(fname,lname,contact)
+//     this.age = 23  // automatic sabhi objects mai age add ho jayege 
+//   }
+//   addCourse(){
+//     console.log('new Course Added');
+//   }
+//   removeAllCourses(){
+//     console.log('All courses Removed');
+//   }
+//   greetUser(){
+//         console.log(`welcome Admin ${this.fname} ${this.lname}`);
+//     }
+// }
+// let u1 = new User('saransh','gupta',7292394474)
+// let u2 = new Admin('tulsi','Mishra',638374)
+// // u1.greetUser() // working 
+// u2.greetUser()
+// u2.addCourse()
+// u2.removeAllCourses()
+// u2.greetUser()
+// console.log(u1);
+// console.log(u2);
+
+// class MakeStudent{
+//     // constructor function 
+//     constructor(fname,lname,contact,isVerified ){
+//        this.fname = fname
+//        this.lname = lname
+//        this.contact = contact
+//        this.isVerified = isVerified  
+//      }
+//     }
+//     // Normal function
+//      let showProfile = function(){
+//            if(this.isVerified){
+//            console.log(`Student Name ${this.fname} ${this.lname}`);
+//            console.log(`My contact No. is ${this.contact} `);
+//            }else{
+//            console.log('user not verified ');
+//     }
+//     }
+// MakeStudent.prototype.showProfile = showProfile
+
+// let s1 = new MakeStudent('harshita','sharma',65273832,true)
+// console.log(s1);
+// s1.showProfile()
+
+// // this is prototypal inheritence 
+// let dada = {
+//     fname : 'GR',
+//     lname : 'sharma',
+//     land : '100acre'
+// }
+// let papa = {
+//     fname : 'Rakesh',
+//     lname : 'sharma',
+//     shop : 'Sharmaji womens colletion'
+// }
+// let beta = {
+//     fname : 'sarthak',
+//     lname : 'sharma',
+// }
+// // yaha par beta ka prototype papa banaya 
+// // old method : 01 
+// // beta.__proto__ = papa
+// //   papa.__proto__ = dada
+// // new method : 02 for object to set prototype 
+// Object.setPrototypeOf(beta,papa)
+// Object.setPrototypeOf(papa,dada)
+// method : 03 
+// let beta = Object.create(papa) // it just creating new object or inherit all property
+// // this method for only constructor function only 
+// // beta.prototype.papa = papa
+// console.log(beta); // beta proto papa proto dada
+// console.log(beta.fname);
+// console.log(beta.shop);
+// console.log(beta.land);
+
+//   function  MakeStudent(fname,lname,contact,isVerified ){
+//        this.fname = fname
+//        this.lname = lname
+//        this.contact = contact
+//        this.isVerified = isVerified  
+//     }
+//     let showProfile = function(){
+//        if(this.isVerified){
+//         console.log(`Student Name ${this.fname} ${this.lname}`);
+//         console.log(`My contact No. is ${this.contact} `);
+//        }else{
+//         console.log('user not verified ');
+//      }
+//     }
+//     // yaha par constructor function ka prototype banaya showProfile ko 
+//     MakeStudent.prototype.company = 'Sheryians'
+// MakeStudent.prototype.showProfile = showProfile
+
+// let student1 = new MakeStudent('saransh','gupta',9343632135,true)
+// let student2 = new MakeStudent('sakshi','Gupta',89882654,false)
+// let student3 = new MakeStudent('tulsi','mishra',73629282,true)
+
+// student1.showProfile()
+// console.log(student1.fname,student1.company);
+// console.log(student2.fname,student2.company);
+
+// console.log(student1);
+// console.log(student2);
+// console.log(student3);
+
+// protoype is a additional property jo extra kam karne mai help karte hai 
+// let s = 'saransh'
+// console.log(s.__proto__); // String {'', anchor: ƒ, at: ƒ, big: ƒ, blink: ƒ, …}
+// // console.log(s.__proto__.__proto__);
+
+// let n = 567
+// console.log(n.__proto__);// Number {0, toExponential: ƒ, toFixed: ƒ, toPrecision: ƒ, toString: ƒ, …}
+// // console.log(n.__proto__.__proto__);
+
+// let b = true
+// console.log(b.__proto__); // Boolean {false, toString: ƒ, valueOf: ƒ}
+// console.log(b.__proto__.__proto__);
+
+// classical inheritence 
+// class MakeStudent{
+//     constructor(fname,lname,contact,isVerified ){
+//        this.fname = fname
+//        this.lname = lname
+//        this.contact = contact
+//        this.isVerified = isVerified  
+//        this.showProfile = function(){
+//            if(isVerified){
+//            console.log(`Student Name ${this,fname} ${this.lname}`);
+//            console.log(`My contact No. is ${this.contact} `);
+//            }else{
+//            console.log('user not verified ');
+//      }
+//     }
+//     }
+    
+// }
+// let s1 = new MakeStudent('harshita','sharma',65273832,true)
+// console.log(s1);
+// s1.showProfile()
+// console.log(Object.getPrototypeOf(s1)); // {}
+// console.log(s1.__proto__); // {}
+
+// prototypal inheritence 
+// function MakeStudent(fname,lname,contact,isVerified){
+//     this.fname = fname
+//     this.lname = lname
+//     this.contact = contact
+//     this.isVerified = isVerified 
+//     this.showProfile = function(){
+//      if(isVerified){
+//         console.log(`Student Name ${this,fname} ${this.lname}`);
+//         console.log(`My contact No. is ${this.contact} `);
+//      }else{
+//         console.log('user not verified ');
+//      }
+//     }
+// }
+// let student1 = new MakeStudent('saransh','gupta',9343632135,true)
+// let student2 = new MakeStudent('sakshi','Gupta',89882654,false)
+// let student3 = new MakeStudent('tulsi','mishra',73629282,true)
+
+// student1.showProfile()
+// student2.showProfile()
+// student3.showProfile()
+
+// function MakeStudent(fname,lname,contact,isVerified){
+//     this.fname = fname
+//     this.lname = lname
+//     this.contact = contact
+//     this.isVerified = isVerified 
+//     this.showProfile = function(){
+//      console.log('my name is ',this.fname,this.lname);
+//      console.log('my contact No. is ',this.contact);
+//      console.log('is i am verified user',this.isVerified);
+//     }
+// }
+// let student1 = new MakeStudent('saransh','gupta',9343632135,true)
+// let student2 = new MakeStudent('sakshi','Gupta',89882654,false)
+// let student3 = new MakeStudent('tulsi','mishra',73629282,false)
 // student1.showProfile()
 // student2.showProfile()
 // student3.showProfile()
