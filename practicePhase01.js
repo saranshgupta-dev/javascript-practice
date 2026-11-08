@@ -116,3 +116,26 @@
 // console.log('10'==10) // true
 // console.log('10'===10) // false
 
+// let t = true
+// let f = false
+// console.log(t && f) // false
+// console.log(t || f) // true
+// console.log(!t) // false
+// console.log(!f) // true
+// console.log(t != f); // true
+
+// let str = 'Saransh Gupta'
+// console.log(str.toUpperCase()); // SARANSH GUPTA
+// console.log(str.toLowerCase());// saransh gupta
+// console.log(str.length); // 13 
+
+// console.log('JavaScript'.includes('s')); // false
+// console.log('JavaScript'.includes('S')); // true
+
+// let w = 'Hello World'
+// slice mai 6 se end index tak ka nikalne ke liye
+// console.log(w.slice(6)); // World
+// console.log(w.substring(6)); // World
+
+// let fruit = 'apple'
+// console.log(replace('apple','mango'));
