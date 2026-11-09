@@ -1,4 +1,100 @@
 // Phase 5 Start 
+// Order Shoes for Amazon 
+let Amazon = new Promise(function(ordered,cancelled){
+    console.log('Order is Pending...');
+    let order = false
+    setTimeout(function(){
+      if(order){
+        console.log('Order is Pacaked');
+        ordered()
+      }else{
+        console.log('Order not Accepted');
+        cancelled()
+      }
+    },4000)
+})
+Amazon.then(function(){
+    console.log('Order is Deliverd');
+})
+.catch(function(){
+    console.log('Order is Cancelled');
+})
+.finally(function(){
+    console.log('Ordering Process End');
+})
+
+// let p1 = new Promise(function(resolve,reject){
+//     console.log('promise pending hai...');
+
+//     let result = true
+//     setTimeout(function(){
+//        if(result){
+//         console.log('value true');
+//         resolve()
+//        }else{
+//         console.log('value false');
+//         reject()
+//        }
+//     },2000)
+// })
+// p1.then(function(){
+//     console.log('promise is fullfiled');
+// })
+// .catch(function(){
+//     console.log('promise is rejected');
+// })
+// .finally(function(){
+//     console.log('Promise END');
+// })
+// let p1 = new Promise(function(resolve,reject){
+//     let val = false
+//     if(val){
+//         console.log('success');
+//     }else{
+//         console.log('failure');
+//     }
+// })
+// console.log(p1);
+
+// let p2 = new Promise(function(resolve,reject){
+//     console.log('promise is pending...');
+
+//     let result = false
+//     setTimeout(function(){
+//        if(result){
+//         console.log('value true');
+//         resolve()
+//     }else{
+//         console.log('value false');
+//         reject()
+//     }
+//     },5000)
+    
+// })
+// p2.then(function(){
+//     console.log('promise was fullfiled');
+// })
+// .catch(function(){
+//     console.log('promise was rejected');
+// })
+// .finally(function(){
+//     console.log('promise was END');
+// })
+
+// async function dataLao() {
+//     let response = await fetch('https://picsum.photos/v2/list')
+//     let data = await response.json()
+//     console.log(data);
+// }
+// dataLao()
+
+// async function dataLao() {
+//     let response = await fetch('https://jsonplaceholder.typicode.com/posts/1')
+//     let data = await response.json()
+//     console.log(data);
+// }
+// dataLao()
+
 // Callback function 
 // const fs = require('fs');
 
