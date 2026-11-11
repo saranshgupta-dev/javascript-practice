@@ -1,27 +1,191 @@
-// Phase 5 Start 
+// Phase 5 Start
+var obj = {
+  name : 'saransh',
+  company : 'sheryians',
+  age : 34
+}
+console.log(obj.company); // sheryians ayega
+// Optional chaining 
+console.log(obj.company?.name); // name exist nhi karta toh error ki jagah undefined ayega
+
+// Destructuring 
+// let arr = [10,20,30,40]
+// let [a,b] = arr
+// console.log();
+
+// async function checkData() {
+//   try{
+//       let response = await fetch('https://dummyjson.com/products')
+//        let data = await response.json()
+//       //  console.log(data);
+//        data.products.forEach(function(elem){
+//         // console.log(elem);
+//          console.log(elem.title);
+//        })
+//   }catch(error){
+//    console.error('URL galat hai mere bhai');
+//   }
+// }
+// checkData()
+
+// Normal function 
+// function hero(){
+//   console.log('data a raha hai');
+//   return ' always promise mai ayega'
+// }
+// console.log(hero());
+
+// async function : always return promise
+// async function hero(){
+//   let response = await fetch('https://fakestoreapi.com/products/')
+//   let data = await response.json()
+//   // console.log(data); // specific data or list of data
+//   data.forEach(function(elem){
+//     console.log(elem); // sabhi objects show honge 
+//     // console.log(elem.title);
+//   })
+// }
+// hero() // through async function ese ayega data
+// console.log(hero()) // Promise {<fulfilled>: undefined} 
+
+// let response = fetch('https://fakestoreapi.com/products/1')
+// response.then(function(data){
+//   console.log('Data a gaya ✅');
+//   // console.log(data);
+//   return data.json()  // API se  promise return kiya 
+// })
+// .then(function(mydata){ // promise ka data return kiya
+//   console.log(mydata);
+// })
+// .catch(function(){
+//   console.error('Data nhi aya ❌');
+// })
+
+// let p1 = new Promise(function(resolve,reject){
+//   console.log('promise is pending');
+//   let value = true
+//   setTimeout(function(){
+//     if(value){
+//       console.log('value is true');
+//       resolve('sab sahi hai')
+//     }else{
+//       console.log('value is false');
+//       reject()
+//     }
+//   },3000)
+// })
+// .then(function(a){  // resolve mai pas kiya tha yaha access kiya through a 
+//    console.log(a);
+// })
+// p1.then(function(){
+//     console.log('value completed');
+     
+//     return new Promise(function(res,rej){
+//       let work = true
+      
+//       setTimeout(function(){
+//         if(work){
+//         console.log('this is work');
+//         res()
+//        }else{
+//         console.log('this is not work');
+//         rej()
+//        }
+//       },2000)
+
+//     })
+//   }).then(function(){
+//     console.log('ok it working');
+
+//     return new Promise(function(resolve,reject){
+//       let status = true
+//       setTimeout(function(){
+//          if(status){
+//           console.log('status done');
+//           resolve()
+//          }else{
+//           console.log('Wrong status');
+//           reject()
+//          }
+//       },4000)
+//     })
+//   })
+//   // .then(function(){
+//   //   console.log('Everything completed');
+//   // })
+//   .catch(function(){
+//     console.log('value rejected');
+//   })
+//   .finally(function(){
+//     console.log('Proccess END completely');
+//   })
+
+// Order food from zomato
+// function OrderFood(){
+//    let myOrder = new Promise(function(resolve,reject){
+//     console.log('your order is coming... ');
+//     let orderStatus = true
+//     setTimeout(function(){
+//       if(orderStatus){
+//         console.log('Delivery wale bhaiya a gye hai 📦');
+//         resolve()
+//       }else{
+//         console.log('Order Failed ❌');
+//         reject()
+//       }
+//     },3000)
+//    })
+
+//  myOrder.then(function(){
+//     console.log('Now make a payment 💵');
+//     return new Promise(function(resolve,reject){
+//       let paymentStatus = false
+//       setTimeout(function(){
+//          if(paymentStatus){
+//         console.log('Payment Done ✅');
+//          resolve()
+//       }else{
+//         console.log('payment failed ❌');
+//         reject()
+//       }
+//       },3000)
+//    })
+//   })
+//    .then(function(){
+//     console.log('Food Eating... 🍽️');
+//     console.log('Nacho Nacho');
+//    })
+//   .catch(function(){
+//     console.log('Complain karo 😡');
+//     console.log('patak ke le lenge tumhari');
+//    })
+//  }
+//  OrderFood()
+
 // Order Shoes for Amazon 
-let Amazon = new Promise(function(ordered,cancelled){
-    console.log('Order is Pending...');
-    let order = false
-    setTimeout(function(){
-      if(order){
-        console.log('Order is Pacaked');
-        ordered()
-      }else{
-        console.log('Order not Accepted');
-        cancelled()
-      }
-    },4000)
-})
-Amazon.then(function(){
-    console.log('Order is Deliverd');
-})
-.catch(function(){
-    console.log('Order is Cancelled');
-})
-.finally(function(){
-    console.log('Ordering Process End');
-})
+
+// let Amazon = new Promise(function(ordered,cancelled){
+//     console.log('Order is Pending...');
+//     let order = false
+//     setTimeout(function(){
+//       if(order){
+//         console.log('Order is Pacaked');
+//         ordered()
+//       }else{
+//         console.log('Order not Accepted');
+//         cancelled()
+//       }
+//     },4000)
+// })
+// Amazon.then(function(){
+//     console.log('Order is Deliverd');
+// })
+// .catch(function(){
+//     console.log('Order is Cancelled');
+// })
+// .finally(function(){
+//     console.log('Ordering Process End');
+// })
 
 // let p1 = new Promise(function(resolve,reject){
 //     console.log('promise pending hai...');
