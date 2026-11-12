@@ -1,3 +1,341 @@
+// Promise.allSettled -- sabhi promises ka result show hoga if promise is reject or resolve
+// let p1 =  Promise.resolve('pass 1')
+// let p2 =  Promise.reject('fail 2')
+// let p3 =  Promise.resolve('pass 3')
+// Promise.allSettled([p1,p2,p3])
+// .then((result)=>{
+//   console.log(result);  
+// // output : (3) [{…}, {…}, {…}]
+// // 0:{status: 'fulfilled', value: 'pass 1'}
+// // 1 : {status: 'rejected', reason: 'fail 2'}
+// // 2 :  {status: 'fulfilled', value: 'pass 3'}
+// // length : 3 [[Prototype]] : Array(0)
+// })
+
+// Promise.race -- jo pehle settle ho jaye jiska setTimeout kam hoga vo winner hoga
+// let promise1 = new Promise((resolve,rejects)=>{
+//      setTimeout(()=>{
+//       resolve('data from server 1')
+//      },2000)
+// })
+// let promise2 =  new Promise((resolve, reject) => {
+//   setTimeout(()=>{
+//     reject('server 2 failed  ')
+//   },1000)
+// });
+// Promise.race([promise1,promise2])
+// .then((result)=>{
+//   console.log(result);
+// })
+// .catch((err)=>{
+//   console.log(err);
+// })
+
+// function server1(){
+// return new Promise((resolve)=>{
+//   setTimeout(()=>{
+//     resolve(' Data from Server A ')
+//   },2000)
+// })
+// }
+// function server2(){
+//  return new Promise((resolve)=>{
+//   setTimeout(()=>{
+//     resolve('Data from Server B ')
+//   },2000)
+// })
+// }
+// Promise.race([server1(),server2()])
+// .then((result)=>{
+//   console.log(result);
+// })
+// .catch((err)=>{
+//   console.log(err);
+// })
+
+// let promise1 = new Promise((resolve)=>{
+//   setTimeout(()=>{
+//     resolve('Promise 1 winner!')
+//   },2000)
+// })
+// let promise2 = new Promise((resolve)=>{
+//   setTimeout(()=>{
+//     resolve('Promise 2 winner!')
+//   },3000)
+// })
+// Promise.race([promise1,promise2])
+// .then((result)=>{
+//     console.log(result);
+// })
+
+// let fast =  new Promise((resolve)=>{ 
+//   setTimeout(()=>{
+//    resolve('Fast 🐁')
+//   },1000)
+// })
+// let slow = new Promise((resolve)=>{
+//   setTimeout(()=>{
+//     resolve('slow 🐢')
+//   },3000)
+// })
+// Promise.race([fast,slow])
+// .then((winner)=>console.log(winner))
+
+// Promise.all - mai ek bhi promise reject hone par only .catch chalega
+// const s1 = Promise.resolve('saransh')
+// const s2 = Promise.reject('samosa khatam!')
+// const s3 = Promise.resolve('sakshi')
+
+// Promise.all([s1,s2,s3])
+// .then((result)=>{
+//   console.log(result);
+// })
+// .catch((err)=>{
+//   console.log(err);
+// })
+
+// Promise.all -- Sab Successful hone chahiye
+// const p1 = Promise.resolve('chai')
+// const p2 = Promise.resolve('samosa')
+// const p3 = Promise.resolve('biscuit')
+
+// Promise.all([p1,p2,p3])
+// .then((result)=>{
+//   console.log(result);
+// })
+// .catch((err)=>{
+//   console.log('koi ek fail hua:',err);
+// })
+
+// new Promise((resolve)=>{
+// })
+// Promise.resolve(100)
+// .then((result)=>{
+//   console.log(result); // 100
+//   throw new Error('Oops!')
+// })
+// .catch((Error)=>{
+//     console.log(Error);
+//     return 200
+// })
+// .then((result)=>{
+//   console.log('Final',result);
+// })
+
+// new Promise((resolve,reject)=>{
+//   // reject('Something went wrong')
+// })
+// // .catch(err => console.log(err))
+
+// Promise.resolve(10)
+// .then(result =>{
+//   console.log(result);
+//   throw new Error('Somehting went wrong')
+// } )
+// .catch(err => console.log(err.message))
+
+// function add(num){
+//   return new Promise((resolve)=>{
+//    setTimeout(()=>{resolve(num + 10)},1000)
+//   })
+// }
+// add(0)
+// .then((result)=>{
+//   console.log(result);
+//   throw new Error('Beech mai error! ')
+// })
+// .then((result)=>{
+//   console.log('ye nhi chalega',result);
+// })
+// .then((result)=>{
+//   console.log('ye bhi nahi chalega',result);
+// })
+// .catch((error)=>{
+//   console.log('Error pakda :',error.message);
+// })
+
+// Promise Chaining 
+// function add(num){
+//   return new Promise((resolve)=>{
+//     setTimeout(()=>{resolve(num + 10)},1000)
+//   })
+// }
+// add(1)
+// .then((result)=>{
+//   console.log(result);
+//   return add(result)
+// })
+// .then((result)=>{
+//   console.log(result);
+//   return add(result)
+// })
+// .then((result)=>{
+//   console.log(result);
+//   return add(result)
+// })
+
+// function dataLao(){
+//   return new Promise((resolve,reject)=>{
+//     console.log('Data laa Raha hoon..');
+
+//     setTimeout(()=>{
+//       let success = false
+
+//       if(success){
+//         resolve({id:1,naam:'aman'})
+//       }else{
+//         reject('Server down hai!')
+//       }
+//     },2000)
+//   })
+// }
+// dataLao()
+// .then(function(result){
+//   console.log('success',result);
+// })
+// .catch(function(error){
+//   console.log('Error',error);
+// })
+// // promise settle hone par hamesha chalta hai
+// .finally(()=>{
+//   console.log('kaam khatam ');
+// })
+
+// New Promise create karna 
+// const myPromise = new Promise((resolve,reject)=>{
+//   let kaamsafal = true
+
+//   if(kaamsafal){
+//     resolve('kaam ho gya ✅')
+//   }else{
+//     reject('kaam nhi hua ❌')
+//   }
+// })
+// console.log(myPromise);
+
+// function dataLao(callback){
+//   setTimeout(()=>{
+//     let error = null
+//     let data = {id : 1, name : 'saransh'}
+   
+//     if(error){
+//       callback(error,null)
+//       return
+//     }else{
+//       callback(null,data)
+//     }
+//   },1000)
+// }
+// dataLao((err,result)=>{
+//   if(err){
+//     console.log('Error aya :',err);
+//     return
+//   }
+//   console.log('Success :',result);
+// })
+
+// if Error is available 
+// function getData(callback){
+//   let error = 'Server not responding'
+//   let data = null
+
+//   callback(error,data)
+// }
+// getData(function(err,result){
+//   if(err){
+//     console.log('error',err);
+//     return
+//   }
+//  console.log('Data',result);  
+// })
+
+// if data is available
+// function getData(callback){
+//   let error = null
+//   let data = 'User data'
+
+//   callback(error,data)
+// }
+// getData(function(err,result){
+//   if(err){
+//     console.log('Something went wrong');
+//     return
+//   }
+//   console.log(result);
+// })
+
+// // callback patterns 
+// function dataLao(callback){
+//   console.log('Server se data la raha hoon...');
+
+//   setTimeout(() =>{
+//     let data = {id : 1, name : 'saransh'}
+//     callback(data)
+//   },2000)
+// }
+// dataLao((result)=>{    // yaha result ke andar data a jayega or callback ke through result call ho jayega 
+//   console.log('Data mil gaya :',result);
+// })
+
+// let TimeID = setTimeout(() =>{
+//   console.log('ye kabhi print nhi hoga');
+// },3000)
+// clearTimeout(TimeID) // setTimeout chalega hi nhi 
+
+// setInterval OR clearInterval 
+// Digital Clock 
+// let IntervalID = setInterval(function(){
+//   let date = new Date()
+//   console.log(date.toLocaleTimeString());
+// },1000)
+// clearInterval(IntervalID)
+
+// let num = 1
+// let INID = setInterval(function(){
+//   console.log(num);
+//   num++
+
+//   if(num === 5){
+//     clearInterval(INID)
+//   }
+// },2000)
+// console.log('javascript');
+
+// let count = 1
+// let IntervalID = setInterval(() => {
+//   console.log('Count :',count);
+//   count++
+
+//   if(count > 5){
+//     clearInterval(IntervalID)
+//     console.log('Interval band ho gya');
+//   }
+// },1000)
+
+// sync callback 
+// [1,2,3].forEach(function(num){
+//   console.log(num * 2); // 2 4 6
+// })
+// async callback 
+// setTimeout(()=>{
+//   console.log('2 second ho gye!');
+// },2000)
+// callback as a argument 
+// function greet(name,city){
+//   console.log(`I am ${name} from ${city} `);
+// }
+// setTimeout(greet,2000,'saransh','indore')
+
+// console.log('A');
+// setTimeout(function(){
+//   console.log('B');
+// },0)
+// console.log('C');
+// [1,2].forEach(function(arr){
+//   console.log(arr);
+// })
+// console.log('D');
+
 // synchronous callback : woh callback hote hai jo immediately execute hote hai
 // Normal synchronous callback :  it is sync so it execute line by line 
 // function greet(name){
