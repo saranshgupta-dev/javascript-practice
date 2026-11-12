@@ -1,12 +1,209 @@
+// synchronous callback : woh callback hote hai jo immediately execute hote hai
+// Normal synchronous callback :  it is sync so it execute line by line 
+// function greet(name){
+//   console.log('hello',name);
+// }
+// function welcome(callback){
+//   console.log('welcome function started');
+//   callback('Rahul')
+//   console.log('welcome function ended');
+// }
+// welcome(greet)
+
+// forEach synchronous callback 
+// let arr = [10,20,30]
+// console.log('start');
+// arr.forEach(function(num){
+//   console.log(num);
+// })
+// console.log('end');
+
+// Asynchronous callback : voo callback jo turant execute nhi hote 
+// setTimeout callback 
+// console.log('start');
+// setTimeout(function(){     // setTimeout is async task
+//   console.log('Hello Rahuul');
+// },3000)
+// console.log('end');
+
+// Food Order Using Async callback 
+// function orderFood(callback){
+//    console.log('Food ordred');
+
+//    setTimeout(function(){
+//     console.log('food is ready');
+//     callback() // eatfood() hoga 
+//    },3000)
+// }
+
+// function eatFood(){
+//   console.log('Eating food');
+// }
+// orderFood(eatFood)
+// console.log('Watching YouTube');
+
+// callback function 
+// function namasteBolo(name){
+//   console.log('namaste',name);
+// }
+// function welcome(callback){
+//   let user = "Rahul"
+//   callback(user)
+// }
+// welcome(namasteBolo) // namaste Rahul
+// welcome(namasteBolo('saransh')) // namaste saransh
+
+// Method:01 same behaviour with class name 
+// class Person{
+//   constructor(name){
+//     this.name = name
+//   }
+//   greet(){
+//     return 'hi '+ this.name
+//   }
+// }
+// let p1 = new Person('saransh')
+// console.log(p1.greet());
+
+// Method: 02 same behaviour with constructor function  
+// function Person(name){
+//   this.name = name 
+// }
+// Person.prototype.greet = function(){
+//    return 'hi ' + this.name
+// }
+// let p1 = new Person('sakshi')
+// console.log(p1.greet());
+
+// class Animal{
+//   eat(){
+//     console.log('eating');
+//   }
+// }
+// let a1 = new Animal()
+// console.log(a1.__proto__);
+// console.log( Animal.prototype);
+// console.log(a1.__proto__ === Animal.prototype);
+// a1.eat = function(){
+//   return 'Sleeping'
+// }
+// console.log(a1.eat()); // Sleeping
+// console.log(Animal.prototype.eat()); // eating
+// console.log(a1.hasOwnProperty('eat'));// true
+
+// class Animal{
+//   eat(){
+//     console.log('eating');
+//   }
+// }
+// let a1 = new Animal()
+// console.log(a1.eat); //eat function because  class ki property object mai rehte hai
+// console.log(a1.hasOwnProperty('eat')); // false because ye prototype mai stored hai
+// console.log(Animal.prototype.hasOwnProperty('eat'));// true because Animal ke prototype ki OwnProperty hai  
+
+// console.log(typeof Animal.prototype.eat); // eat is function
+// console.log(typeof Animal.prototype); // class ka prototype object hota hai
+// console.log(typeof Animal.eat); // undefined because Animal ke prototype mai eat function
+// console.log(typeof Animal); // function
+
+// class Person{
+//   constructor(name){
+//     this.name = name 
+//   }
+//   greet(){
+//     return 'hi this is ' + this.name
+//   }
+// }
+// let p1 = new Person('sarthak')
+// console.log(p1.greet());
+// console.log(typeof Person); // function
+// console.log(typeof Person.prototype.greet); 
+// console.log(Person.prototype.greet); // pura greet function aya 
+// person class ki greet property ka typeof check kiya function
+
+// PIN Secure karna using Private fields in ATM machine 
+// class ATM{
+//   #pin = 1234
+//   #balance = 20000
+
+//   checkBalance(enteredPIN){
+//     if(enteredPIN === this.#pin){
+//       console.log('Balance :',this.#balance);
+//     }else{
+//       console.log('Wrong PIN');
+//     }
+//   }
+//   credit(enteredPIN,amount){
+//     if(enteredPIN !== this.#pin){
+//       console.log('Invalid PIN');
+//       return
+//     }
+//     if(amount > this.#balance){
+//       console.log('Insufficient balance');
+//       return
+//     }
+//     this.#balance += amount
+
+//     console.log('Creadit Successfully');
+//     console.log('Remaining :',this.#balance);
+//   }
+//   withdraw(enteredPIN,amount){
+//     if(enteredPIN !== this.#pin){
+//       console.log('Invalid PIN');
+//       return;
+//     }
+//     if(amount > this.#balance){
+//       console.log('Insufficient balance');
+//       return
+//     }
+   
+//     this.#balance -= amount
+
+//     console.log('Withdraw Successfully!');
+//     console.log('Remaining :',this.#balance);
+//     console.log(this.#pin) // easily access 
+//   }
+// }
+// let user1 = new ATM()
+// user1.checkBalance(1234)
+// // console.log(user1.#pin); // error because of private fields  
+// user1.withdraw(1234,2000)
+// user1.credit(1234,4000)
+
+// Private Fields(#)
+// class Student{
+//   #name = 'saransh'
+//   showName(){
+//     console.log(this.#name);
+//   }
+// }
+// let s1 = new Student()
+// s1.showName()
+// // Error : Property '#name' is not accessible outside class 'Student' because it has a private identifier.
+// // console.log(s1.#name);
+
+// Normal Property 
+// class Student {
+//   constructor(name,age){
+//     this.name = name
+//     this.age = age
+//   }
+// }
+// // Class ke bahar variables ko easily access kiya 
+// let s1 = new Student('Rahul',45)
+// let s2 = new Student('saransh',22)
+// console.log(s1.name);
+// console.log(s2.name);
+
 // Phase 5 Start
-var obj = {
-  name : 'saransh',
-  company : 'sheryians',
-  age : 34
-}
-console.log(obj.company); // sheryians ayega
-// Optional chaining 
-console.log(obj.company?.name); // name exist nhi karta toh error ki jagah undefined ayega
+// // Optional chaining 
+// var obj = {
+//   name : 'saransh',
+//   company : 'sheryians',
+//   age : 34
+// }
+// console.log(obj.company); // sheryians ayega
+// console.log(obj.company?.name); // name exist nhi karta toh error ki jagah undefined ayega
 
 // Destructuring 
 // let arr = [10,20,30,40]
