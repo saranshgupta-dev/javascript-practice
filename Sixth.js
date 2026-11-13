@@ -1,3 +1,326 @@
+// // Sequential Execution 
+// function getUser(){
+//     return new Promise((resolve)=>{
+//         setTimeout(()=>{
+//           resolve({id:101, name:'saransh'})
+//         },2000)
+//     })
+// }
+// function getOrders(userID){
+//     return new Promise((resolve)=>{
+//         setTimeout(()=>{
+//           resolve([
+//             {orderID : 1, product : 'laptop',userID : userID},
+//             {orderID : 2, product : 'Mobile',userID : userID}
+//           ],2000)
+//         })
+//     })
+// }
+// async function  getUserDetails() {
+//     console.log('Fetching User....');
+//     let user = await getUser()
+//     console.log('User',user);
+
+//     console.log('Fetching Orders....');
+//     let order = await getOrders(user.id)
+//     // console.log(user.id); // 101
+//     console.log('Orders',order);
+// }
+// getUserDetails()
+
+// E-commerce Website 
+// async function loadWebsite() {
+//     let[user,products,categories] = await Promise.all([
+//           fetch('https://fakestoreapi.com/users/1'),
+//           fetch('https://fakestoreapi.com/products'),
+//           fetch('https://fakestoreapi.com/products/categories')
+//     ])
+//     // check HTTP errors
+//     if(!user.ok || !products.ok || !categories.ok){
+//         throw new Error("API request failed!")
+//     }
+//  // convert Response into json()
+//     [user,products,categories] = await Promise.all([
+//         user.json(),
+//         products.json(),
+//         categories.json()
+//     ])
+//     console.log('User:',user);
+//     console.log('Products:',products);
+//     console.log("Categories:",categories);
+// } 
+// loadWebsite().catch(error => console.log(error.message))
+
+// function task1(){
+//     return new Promise((resolve)=>{
+//         setTimeout(()=>{
+//             console.log('Task 1 completed');
+//             resolve()
+//         },2000)
+//     })
+// }
+// function task2(){
+//     return new Promise((resolve)=>{
+//         setTimeout(()=>{
+//             console.log('Task 2 completed');
+//             resolve()
+//         },1000)
+//     })
+// }
+// function task3(){
+//     return new Promise((resolve)=>{
+//         setTimeout(()=>{
+//             console.log('Task 3 completed');
+//             resolve()
+//         },4000)
+//     })
+// }
+// Sequential Execution 
+// async function execute() {
+//     await task1() // task1 execute in 2second
+//     await task2() // task2 execute in 3second
+//     await task3() // task3 execute in 4second
+// }
+// Parallel Execution
+// async function execute() {
+// // yaha par apne setTimeout ke according execute honge sabhi task
+//    await Promise.all([task1(),task2(),task3()])
+// }
+// execute() // when execute() is call all task started executing  
+
+
+// function dataLao(){
+//     return new Promise((reject)=>{
+//         setTimeout(()=>{
+//             reject('data fail ho gya ❌')
+//         },1000)
+//     })
+// }
+// Mehtod : 01 using .then(), .catch(), .finally()
+// dataLao()
+// .then((result)=>console.log(result))
+// .catch((Error)=>console.log(Error))
+// .finally(()=>console.log('cleanup ho gya'));
+// Mehtod : 02 async/await 
+// async function checkData() {
+//    try{
+//        let result = await dataLao()
+//        console.log(result);
+//    }
+//    catch(error){
+//        console.log('Error',error);
+//    }
+//    finally{
+//     console.log('cleanup ho gya');
+//    }
+// }
+// checkData()
+
+// function dataLao(){
+//     return new Promise((resolve)=>{
+//         setTimeout(()=>{
+//             resolve('data lao re land ke ')
+//         },2000)
+//     })
+// }
+// same output with .then() resolve function
+// dataLao()
+// .then((data)=>{
+//     console.log('start');
+//     console.log(data)
+//     console.log('End');
+// })
+// same output with async/await  
+// async function main() {
+//     console.log('start');
+//     let data = await dataLao()
+//     console.log(data);
+//     console.log('End');
+// }
+// main()
+
+// Promise mai eror handling ke liye .then() or .catch() lagata  
+// function getData(){
+//   return Promise.reject('Server Down hai !')
+// }
+// Method : 01 using .catch()
+// getData()
+// .then((result)=>console.log(result))
+// .catch((err)=>console.log('Error',err))
+// Method : 02 using try/catch
+// async function read() {
+//     try{
+//         let result = await getData()
+//         console.log(result);
+//     }
+//     catch(error){
+//        console.log('Error: ',error)
+//     }
+// }
+// read()
+
+// function orderFood(){
+//     return new Promise((resolve)=>{
+//         setTimeout(()=>{
+//            resolve('Pizza is Ready')
+//         },2000)
+//     })
+// }
+// async function eatFood() {
+//     console.log('Order placed');
+//     let result = await orderFood()
+//     console.log(result);
+//     console.log('Eating food');
+// }
+// eatFood()
+
+// function workData(){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//           resolve('Aman')
+//         },2000)
+//     })
+// }
+// async function read() {
+//     // let result =  workData() // Yahan result mein Promise object milega.
+//    let result = await workData() // result mein resolved value milegi.
+//     console.log(result); // result dega resolve ho ya reject 
+// }
+// read()
+
+// async function always returns Promises 
+// async function add() {
+//     return 10 + 20
+// }
+// // .then resolve milne ke bad chalta hai  so async function ne Promise.resolve return kiya 
+// add()
+// .then((result)=>console.log(result))
+
+// async function Normal() { // async function : always return Promises 
+//     return ' Hello Sransh'
+// }
+// console.log(Normal()); // Promise {<fulfilled>: ' Hello Sransh'}
+
+// function work(){ // normal function 
+//       return Promise.resolve('Hello Honey')
+// }
+// console.log(work()); // Promise {<fulfilled>: 'Hello Honey'}
+
+// yaha Async task bhi synchronousely chal rahe hai : through async/await
+// function getData(){
+//     return new Promise((resolve)=>{
+//         setTimeout(()=>{
+//            resolve(100)
+//         },2000)
+//     })
+// }
+// // sirf es async function ko pause karta hai await 
+// async function showData() {
+//     console.log('start');
+//     let result = await getData()
+//     console.log(result);
+//     console.log('End');
+// }
+// function hello(){
+//     console.log('its execute perfectely before complete execution of async function because async is currentely in pause state');
+// }
+// showData() // start -> hello() -> 100 -> End 
+// hello()
+
+// Promise chaining : 
+// function getData(){
+//     return new Promise((resolve)=>{
+//         setTimeout(()=>{
+//             resolve('Data Recived')
+//         },2000)
+//     })
+// }
+// getData()
+// .then((result)=>console.log(result))
+
+// Same work with async/await 
+// function getData(){
+//     return new Promise((resolve)=>{
+//         setTimeout(()=>{
+//             resolve('Data Accessed Successfully')
+//         },2000)
+//     })
+// }
+// async function showData() {
+//     let result = await getData()
+//     console.log(result);
+// }
+// showData()
+
+// Promise.any -- only resolve result show karta hai rejections ko ignore karta hai 
+// agar sare reject ho jaayein tab AggregateError deta hai .  
+// let p1 = Promise.reject('error 1')
+// let p2 = new Promise((resolve)=>{
+//      setTimeout(()=>{
+//       resolve('pass 2 ')
+//      },2000)
+// })
+// let p3 = Promise.reject('error 3')
+// Promise.any([p1,p2,p3])
+// .then((result)=>console.log(result)) // p2 is winner only resolve result show hoga else Aggregate Error
+// .catch((err)=>console.log(err))
+
+// let p1 = Promise.reject('Error 1')
+// let p2 = Promise.reject('Error 2')
+// let p3 = Promise.reject('Error 3')
+// Promise.any([p1,p2,p3])
+// .catch((error)=>{
+//     console.log(error) // AggregateError: All promises were rejected
+// console.log(error.errors);})  // (3) ['Error 1', 'Error 2', 'Error 3']
+
+// function serverA(){
+//     return new Promise((resolve,reject)=>{
+//        setTimeout(()=> reject('Server A is Fail'))
+//     },1000)
+// }
+// function serverB(){
+//     return new Promise((resolve)=>{
+//         setTimeout(()=>resolve('Server B is Pass'),2000)
+//     })
+// }
+// function serverC(){
+//     return new Promise((resolve)=>{
+//         setTimeout(()=>resolve('Server C is Pass'),1000)
+//     })
+// }
+// Promise.any([serverA(),serverB(),serverC()])
+// .then((result)=>console.log('Data Recived:',result))
+// .catch((error)=>console.log('All servers failed',error))
+
+// let p1 = new Promise((resolve,reject)=>{
+//     setTimeout(()=>{
+//         reject('Promise 1 Fail')
+//     },1000)
+// })
+// let p2 = new Promise((resolve)=>{
+//     setTimeout(()=>{
+//         resolve('Promise 2 PASS')
+//     },2000)
+// })
+// let p3 = new Promise((resolve)=>{
+//     setTimeout(()=>{
+//         resolve('Promise 3 pass')
+//     },1000)
+// })
+// Promise.any([p1,p2,p3])
+// .then((result)=>console.log(result))
+// .catch((err)=>console.log(err))
+
+// if age = 0 is a falsy value then 43 was myage
+// let age = 0
+// let obj = {
+//     name : 'saransh',
+//     myage : age || 43 
+//     // myage : age ?? 43  // age = 0 = myage,  age = null  myage =43
+//     // left value null or undefined hone par right side value chalayega
+// }
+// console.log(obj);
+
 // Promise.allSettled -- sabhi promises ka result show hoga if promise is reject or resolve
 // let p1 =  Promise.resolve('pass 1')
 // let p2 =  Promise.reject('fail 2')
