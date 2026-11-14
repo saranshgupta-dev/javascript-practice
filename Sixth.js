@@ -1,3 +1,224 @@
+// async function async1() {
+//   console.log("async1 start");
+//   await async2();
+//   console.log("async1 end"); // ye await ke baad — microtask ban jaata hai
+// }
+
+// async function async2() {
+//   console.log("async2");
+// }
+
+// console.log("script start");
+
+// async1();
+
+// console.log("script end");
+
+// console.log('start');
+// setTimeout(()=>{
+//     console.log('Timeout 1');
+// },0)
+// Promise.resolve().then(()=>{
+//     console.log('Promise 1');
+//     setTimeout(()=>{
+//         console.log('Timeout 2');
+//     },0)
+// })
+// setTimeout(()=>{
+//     console.log('Timeout 3');
+// },0)
+// console.log('END');
+
+// console.log('start');
+// setTimeout(()=>{
+//     console.log('Timer');
+// },2000)
+// Promise.resolve().then(()=>console.log('promise high priority than setTimeout'))
+// console.log('End');
+
+// Promise without setTimeout
+// let promise = new Promise((resolve,reject)=>{
+//     resolve('hello')
+// })
+// promise.then((result)=>{
+//     console.log(result);
+// })
+
+// Sequential Execution 
+// function task1(){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             resolve('task 1 complete')
+//         },2000)
+//     })
+// }
+// function task2(){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             resolve('task 2 complete')
+//         },3000)
+//     })
+// }
+// async function sahi(items) {
+//     for(const item of items){
+//      let result = await item()
+//      console.log(result);
+//     }
+//     console.log('Done');
+// }
+// sahi([task1,task2])
+
+// function dataLao(){
+//     return new Promise((resolve,reject)=>{ // Promise mai dono parameter dene honge
+//         setTimeout(()=>{
+//             reject('Error')
+//         },1000)
+//     })
+// }
+// // async function galat() {
+// //     let info = await dataLao()
+// //     console.error(info);
+// // }
+// // galat()
+// async function sahi() {
+//     try{
+//         let info = await dataLao()
+//         console.log(info)
+//     }catch(e){
+//        console.log('Handle kiya',e);
+//     }
+// }
+// sahi()
+
+// Sequential  Practice with Notes 
+// function kaam(name,time){
+//     return new Promise((resolve)=>{
+//         setTimeout(()=>{
+//             resolve(`${name} done`)
+//         },time)
+//     })
+// }
+// async function work() { 
+//     console.time('sequential');
+//     let a = await kaam('saransh',2000)
+//     let b = await kaam('sourabh',3000)
+//     let c = await kaam('harshita',3000)
+//     console.log(a);
+//     console.log(b);
+//     console.log(c);
+//     console.timeEnd('sequential')
+// }
+// work()
+
+// Parallel Practice with Notes 
+// function kaam(naam, time) {
+//     return new Promise((resolve) => {
+//         setTimeout(() => {
+//             resolve(`${naam} done`);
+//         }, time);
+//     });
+// }
+// async function parallel() {
+//     console.time('parallel');
+//     let a = kaam('saransh', 2000);
+//     let b = kaam('sakshi', 2000);
+//     let c = kaam('sourabh', 2000);
+//     [a, b, c] = await Promise.all([a, b, c]);
+//     // let result = await Promise.all([a,b,c])
+//     console.log(a);
+//     console.log(b);
+//     console.log(c);
+//     // console.log(result); // output : array ke form mai dega
+//     console.timeEnd('parallel');
+// }
+// parallel();
+
+// Parallel + Sequential Execution 
+// function getUser(){
+//     return new Promise((resolve)=>{
+//         setTimeout(()=>{
+//             resolve({
+//                 id : 101,
+//                 name : 'sarthak'
+//             })
+//         },2000)
+//     })
+// }
+// function getProducts(){
+//     return new Promise((resolve)=>{
+//         setTimeout(()=>{
+//             resolve([
+//              {product : 'Mobile'},
+//              {product : 'Laptop'}   
+//             ])
+//         },3000)
+//     })
+// }
+// function getOrders(userID){
+//     return new Promise((resolve)=>{
+//         setTimeout(()=>{
+//           resolve([
+//             {orderID : 1, product : 'Mobile',userID : userID },
+//             {orderID : 2, product:'Laptop',userID : userID}
+//           ])
+//         },3000)
+//     })
+// }
+// async function parallel() {
+//     let user = await getUser()
+//     let [products,order] = await Promise.all([
+//     getProducts(),
+//     getOrders(user.id)
+// ])
+// console.log(user);
+// console.log(products);
+// console.log(order);
+// }
+// parallel()
+
+// Parallel Execution 
+// function getUser(){
+//    return new Promise((resolve)=>{
+//     setTimeout(()=>{
+//       resolve({
+//         id : 101,
+//         name : 'saransh'
+//       })
+//     },2000)
+//    })
+// }
+// function getProducts(){
+//     return new Promise((resolve)=>{
+//         setTimeout(()=>{
+//             resolve([
+//              { product : 'laptop'},
+//              { product : 'Mobiles'}
+//             ])
+//         },2000)
+//     })
+// }
+// function getOrders(userID){
+//     return new Promise((resolve)=>{
+//         setTimeout(()=>{
+//             resolve([
+//              { orderID : 1,product : 'laptop',userID : userID},
+//              { orderID : 2,product : 'Mobiles', userID : userID}
+//             ])
+//         },3000)
+//     })
+// }
+// async function Parallel() {
+//     let [user,products,order] = await Promise.all([
+//         getUser(),
+//         getProducts() ,
+//         getOrders()
+//     ])
+//     console.log(user);
+//     console.log(products);
+//     console.log(order);
+// }
+// Parallel()
+
 // // Sequential Execution 
 // function getUser(){
 //     return new Promise((resolve)=>{
