@@ -1,17 +1,172 @@
+// callback hell : minimum 3 level mai 
+// function loginUser(username,callback){
+//     setTimeout(()=>{
+//         console.log('User login Successful');
+//         callback({id:101})
+//     },1000)
+// }
+// function getUserProfile(userID,callback){
+//     setTimeout(()=>{
+//         console.log('User Profile Fetched');
+//         callback({userID:userID, name:'Rahul'})
+//     },1000)
+// }
+// function getUserPosts(userID,callback){
+//     setTimeout(()=>{
+//         console.log('User Post Fetched');
+//         callback(['callback 1','callback 2'])
+//     },1000)
+// }
+// callback hell 
+// loginUser('Saransh',function(user){
+//     getUserProfile(user.userID,function(profile){
+//         getUserPosts(profile.userID,function(posts){
+//             console.log('Username:',profile.name);
+//             console.log('Posts :',posts);
+//         })
+//     })
+// })
+
+
+// 5 to 0 tak print kiya using setTimeout
+// let count = 5
+// function countdown(){ // basically yaha function repeately call ho raha hai 
+//    console.log(count);
+//    if(count > 0){
+//      count--
+//      setTimeout(countdown,1000)
+//    }
+// }
+// countdown()
+
+// 5 to 0 tak print kiya using setInterval 
+// let count = 5
+// let ID = setInterval(()=>{
+//     console.log(count);
+//     count--
+//     if(count < 0){
+//         clearInterval(ID)
+//     }
+// },1000)
+
+// const original = {
+//     naam : 'saransh',
+//    address : { city : 'indore'}
+// }
+// const copy = JSON.parse(JSON.stringify(original))
+// // value update kiya yaha 
+// copy.address.city = 'Bhopal'
+// console.log(copy); 
+// console.log(original.address.city); // indore
+// console.log(copy.address.city); // bhopal
+
+// const obj = {
+//     name : 'saransh',
+//     age : 23,
+//     greet : function(){console.log('skip')},
+//     home : undefined
+// }
+// let text1 = JSON.parse(JSON.stringify(obj)) // obj ki copy create kar sakte hai 
+// console.log(text1);
+
+// let original = {a:2,b:[2,4]}
+// let toJson = JSON.stringify(original) // original object se JSON text mai convert kiya
+// let toParse = JSON.parse(toJson) // JSON text se object mai convert kiya
+// console.log(toParse);
+// console.log(toJson);
+
+// let str = '{"name":"saransh","age":22, "skills": ["jS","React"]}'
+// try{
+//     let obj = JSON.parse(str) // variable mai store karna must hai 
+//     console.log(obj);
+// }
+// catch(error){
+//     console.log('Invalid JSON',error.message);
+// }
+
+// yaha hum JSON string ko object mai convert kar rahe hai , not normal string
+// const string = '{"name" : "saransh", "age" : 22, "skills" : ["javascript","React"]}'
+// let obj = JSON.parse(string)
+// console.log(obj);
+
+// const user = {
+//     name : 'saransh',
+//     age : undefined,  // undefined or function ko skip kar deta hai JSON.stringify()
+//     greet:function(){console.log('skip');}
+// }
+// let string = JSON.stringify(user)
+// console.log(string); // {"name":"saransh"}
+
+// JSON.stringify()  convert object/array into a JSON format like text(string)
+// const user = {
+//     name :'saransh',
+//     age : 45,
+//     skills : ['JavaScript','react']
+// }
+// let jsonstring = JSON.stringify(user) // it's convert in form of 
+// console.log(jsonstring);
+// console.log(typeof jsonstring);
+// console.log(JSON.stringify(user,null,2));
+
+// Post request : data bhejna 
+// async function  userBanao() {
+//     try{
+//       const response = await fetch('https://jsonplaceholder.typicode.com/users',{
+//           method : 'POST', // request type
+//           headers : {
+//             'Content-Type': 'application/json', // bata rahe hain ki JSON bhej rahe
+//           },
+//           body : JSON.stringify({ // JS object ko JSON string mai convert karna
+//             name : 'Rahul',
+//             email : 'rahul@example.com'
+//           }),
+//       })
+//       // check karo request successfull thi ya nhi 
+//       if(!response.ok){
+//         throw new Error(`HTTP error! Status : ${response.status}`)
+//        }
+//       const data = await response.json() // server ka response variable mai store hota hai
+//       console.log('Ban gaya Data',data);
+//     }
+//     catch(error){
+//        console.log('Error:',error.message);
+//     }
+// }
+// userBanao()
+
+// async/await : using 
+// async function userLao() {
+//     try{
+//         const response = await fetch('https://jsonplaceholder.typicode.com/users/1')
+    
+    // // check karo request successfull thi ya nhi 
+    //   if(!response.ok){
+    //     throw new Error(`HTTP error! Status : ${response.status}`)
+    //    }
+//       const data = await response.json()
+//       console.log('User mill gaya: ',data);
+//     }catch(error){
+//       console.log('kuch galat hua hai :',error.message);
+//       }
+// }
+// userLao()
+
+// here hum .then() se bhi kisi api ka data fetch kar sakte hai 
+// let response = fetch('https://jsonplaceholder.typicode.com/users/1')
+// .then((response)=> response.json())
+// .then((data)=>console.log(data))
+// .catch((error)=>console.log(error))
+
 // async function async1() {
 //   console.log("async1 start");
 //   await async2();
 //   console.log("async1 end"); // ye await ke baad — microtask ban jaata hai
 // }
-
 // async function async2() {
 //   console.log("async2");
 // }
-
 // console.log("script start");
-
 // async1();
-
 // console.log("script end");
 
 // console.log('start');
@@ -21,7 +176,7 @@
 // Promise.resolve().then(()=>{
 //     console.log('Promise 1');
 //     setTimeout(()=>{
-//         console.log('Timeout 2');
+//         console.log('Timeout 2'); // sabhi timeout execute hone ke bad execute hoga
 //     },0)
 // })
 // setTimeout(()=>{
