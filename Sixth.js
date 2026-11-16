@@ -1,3 +1,382 @@
+// Template Literals : multiline print karne ke liye bhi use karsakte hai 
+// let name = 'saransh'
+// let age = 23
+// console.log(`mera naam ${name} hai or mai ${age} saal ka hoon
+//     Line 2 : this is 
+//     Line 3 : this is `);
+
+// let fruit = ['mango','kela','angur','mosanbi']
+// let newfruit = [...fruit,'apple','tulsi ke nipple/brest ']
+// console.log(newfruit); // expand karke new array me daal diya hai 
+// console.log(fruit);
+
+// it is spread 
+// let arr = [10,20,30,40,50]
+// console.log(...arr) // 
+// console.log(arr);
+
+// Destructuring in Rest Operator
+// const [head,...tail] = [1,2,3,4,5]
+// console.log(head); 
+// console.log(tail);
+
+// kuch properties nikaal kar baki ekatha kar diya 
+// const {passwor, ...safeUser} = {
+//     name : 'saransh',
+//     email : 'example@gmail.com',
+//     passwor : 'secret1234'
+// } 
+// console.log(passwor);
+// console.log(safeUser); 
+
+// Rest with Normal 
+// function data(first,...team){
+//     console.log('Person 1 :',first);
+//     console.log('Teams',team);
+// }
+// data('priya','shweta','nikita','harshita')
+
+// Rest : function parameter 
+// function sum(...numbers){
+//     return numbers.reduce((total,n)=> total + n)
+// }
+// console.log(sum(1,2,3,4));// 10
+// console.log(sum(10,20,30,40)); // 100
+
+// Rest Operator in JS 
+// function data(...numbers){
+//     console.log(numbers);
+// }
+// data(1,2,3,4,4,5,5,5)
+// data(name = 'saransh',age = 24) // array bana diya
+// Destrucuturing in Rest 
+// let arr = [10,20,30,40,50]
+// let [a,b,...rest] = arr
+// console.log(a,b); console.log(rest); // remaining rest mai a gye 
+
+// spread : string ko Array banaya
+// console.log([...'bhola']) // string ko array bana diya
+
+// Spread : function Argument 
+// const nums = [1,9,3,45,2,34,4]
+// console.log(Math.max(...nums)); // 45 is max in ...nums mai pura array pass ho gya ek bar mai 
+// console.log(Math.min(...nums)); // 1 is min
+
+// purana data copy karke value/state update karna
+// let oldstate = {loggedIn:false,user: 'saransh',location:'mumbai'}
+// let newstate = {...oldstate,loggedIn : true}
+// console.log(newstate); console.log(oldstate);
+
+// Spread Operator in Array 
+// let arr1 = [1,2,3]
+// let arr2  = [5,6,7]
+// let merged = [...arr1 , ...arr2]
+// console.log(merged);
+// const copy = [...arr1] // arr1 ki copy banai yaha par
+// console.log(copy);
+// const items = [0,...arr1,4,...arr2]
+// console.log(items); // two array merge kiya with extra values add kar ke
+
+// Spread Operator in Objects 
+// let base = {
+//     name : 'saransh',
+//     money : '50cr'
+// }
+// let copyObj = {...base,work : 'Business'} // object copy kiya or new value add ki
+// console.log(copyObj);
+// let update = {...base,name:'sourabh'} // pehle obj copy then value update kiya
+// console.log(update);
+
+// two array merge kiya 
+// let arr = [10,20,30]
+// let arr2 = [...arr,40,50] // arr ke elem or 40,50 or add kar dia
+// console.log(arr2);
+
+// Spread se object copy kiya 
+// let obj = {
+//     name : 'saransh',
+//     age : 23
+// }
+// let copy = {...obj,age:43, city:'jabalpur'}
+// console.log(copy);
+
+
+// Kuch values chodna hai 
+// let arr = [1,2,3,4,5]
+// let [first, ,third, ,fifth] = arr // yaha variable name dena hai without using string
+// console.log(first,third, fifth);
+
+// Swaping variable without using temp 
+// let p =1, q=2
+// let swap = [p,q] = [q,p]
+// console.log(swap);
+
+// function greet({name,age}){
+//     console.log(`Hello ${name} age ${age}`)
+// }
+// greet({name:'sakshi',age : 27})
+// greet({name:'sourabh',age:25})
+
+// function greetnew({name,age=18}){
+//     console.log(`hii my naam is ${name} and my age is ${age}`);
+// }
+// greetnew({name:'saransh'})
+
+// function parameter mai Destructuring
+// let obj = {
+//     name : 'saransh',
+//     age : 23
+// }
+// function data({name,age,home='bhainswahi'}){
+//     console.log(name);
+//     console.log(age);
+//     console.log(home);
+// }
+// data(obj)
+
+// Nested Array Destructuring 
+// let arr = ['red',['yellow','pink pussy']]
+// let [love,[soul,sex]] = arr
+// console.log(love); // red
+// console.log(sex);
+// console.log(soul);
+
+// Nested Destructuring 
+// const strudent = {
+//     id : 1,
+//     info : {
+//         name : 'priya',
+//         address : {
+//             city : 'Bhopal',
+//             pin : 462001
+//         }
+//     }
+// }
+// const {id,info:{name,address:{city,pin}}} = strudent
+// console.log(pin); // destructuring se direct access kar sakte hai objects kitne bhi nested ho
+
+// Renaming + default value 
+// const {theme : userTheme = 'dark', color = 'blue'} = {}
+// console.log(userTheme);
+
+// Renameing or keys 
+// const user = {name:'saransh',age:23}
+// let {name : userName,age:userAge} = user
+// console.log(userName); // saransh
+// console.log(name); // blank 
+
+// Destructuring : array or object mai values nikal kar alag -alag variable mai store karna
+// const [x=1,y=2,z=3] = [10,20,undefined]
+// //     default value  =  actual value
+// console.log(x,y,z);
+
+// agar value = undefined ho toh default values use ho jati hai 
+// const {name = 'Guest',role = 'user'} = {name :'Riya', role: 'developer'}
+// let obj = {
+//     // name : undefined, // undefined mai default value
+//     name : null, // null,0,'' is a value 
+//     role : 'user'
+// }
+// let {name = 'saransh',role} = obj
+// console.log(name) // output : Riya
+// console.log(role) // developer 
+
+// Rest Operator in Destructuring 
+// let user = {
+//     name:'saransh',
+//     age : 23,
+//     city : 'Indore',
+//     Role : 'Developer'
+// }
+// let {name, ...userDetails} = user
+// console.log(name)
+// console.log(userDetails); // remaining data Rest operator mai a jayega 
+
+// Nested Destructuring in objects 
+// let user = {
+//     name : 'saransh',
+//     age : 23,
+//     address : {
+//         city : 'KATNI',
+//         village : 'Bhainswahi'
+//     }
+// }
+// let {name,age,address:{city,village}} = user
+// console.log(city);
+// console.log(village);
+
+// let arr = [10,20,30,40]
+// let [a,b,c] = arr
+// console.log(a); console.log(b);console.log(c)
+
+// let obj = {
+//     name : 'saransh',
+//     age : 34,
+//     city : 'indore'
+// }
+// let {name ,age, city } = obj
+// console.log(name); console.log(age); console.log(city);
+
+// Destructuring  function using obj
+// let obj = {
+//     name : 'saransh',
+//     age : 23,
+//     // city : 'indore'
+// }
+// function getData({name,age,city = 'bhopal'}){ // destructuring mai basically variables declare kar rahe hai 
+//     console.log(name); // obj mai variable name = property name same hona chahiye
+//     console.log(age);
+//     console.log(city);
+// }
+// getData(obj)
+
+// Destructuring function using array
+// let arr = [10,20]
+// function arrayData([a,b,c=50]){ // here c=50 default parameter diya
+//     console.log(a+b+c); // sum kiya 
+//     console.log(a);
+//     console.log(b);
+//     console.log(c);
+// }
+// arrayData(arr)
+
+//  function p1() {
+//    return new Promise((resolve,reject)=>{
+//     setTimeout(()=>{
+//         resolve('Promise 1 is pass')
+//     },1000)
+// })    
+// }
+//  function p2() {
+//   return new Promise((resolve,reject)=>{
+//     setTimeout(()=>{
+//         reject('promise 2 is fail')
+//     },2000)
+// }) 
+// }
+//  function p3() {
+//     return new Promise((resolve,reject)=>{
+//     setTimeout(()=>{
+//         resolve('promise 3 is pass')
+//     },1000)
+// }) 
+// }
+// async function getData() { // if any one is fail output will be fail only
+//     let result =  await Promise.all([p1(),p2(),p3()])
+//     console.log(result);
+// }
+// getData()
+// async function getData() { // sabke output milenge if fail or pass anything
+//     let result =  await Promise.allSettled([p1(),p2(),p3()])
+//     console.log(result);
+// }
+// getData()
+
+// ek object banao 
+// let obj = {
+//     name : 'saransh',
+//     age : 23,
+//     greet : function(){ console.log('ignore it!')},
+//     home : 'indore'
+// }
+// let str = JSON.stringify(obj) // JSON text
+// let real = JSON.parse(str) // convert to real obj with remove function
+// console.log(typeof real);
+// console.log(real);
+// console.log(typeof str);
+// console.log(str);
+
+// async function dataLao() {
+//     try{
+//         let response = await fetch('https://jsonplaceholder.typicode.com/posts/1')
+//         let data = await response.json()
+//         console.log(data);
+//         console.log(data.title);
+//     }
+//     catch(error){
+//         console.log('Error',error);
+//     }
+// }
+// dataLao()
+
+// async/await callback hell 
+//  function loginUser(){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             resolve({id:101,message:'User Login Successful'})
+//         },1000)
+//     })
+// }
+// function getUserProfile(userID){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             resolve({userID:userID,name:'saransh'})
+//         },1000)
+//     })
+// }
+//  function getUserPosts(){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             resolve(['Post 1','Post 2'])
+//         },1000)
+//     })
+// }
+// async function userData() {
+//     try{
+//         let user = await loginUser()
+//         console.log(user.message);
+
+//         let profile = await getUserProfile(user.id)
+//         console.log('Profile',profile);
+
+//         let posts = await getUserPosts()
+//         console.log('Post :', posts);
+//     }
+//     catch(error){
+//         console.log('Error',error);
+//     }
+// }
+// userData()
+
+
+// function loginUser(){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             resolve({id:101,message:'User Login Successful'})
+//         },1000)
+//     })
+// }
+// function getUserProfile(userID){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             resolve({userID:userID,name:'saransh'})
+//         },1000)
+//     })
+// }
+// function getUserPosts(){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             resolve(['Post 1','Post 2'])
+//         },1000)
+//     })
+// }
+// // Promise chaining 
+// loginUser()
+// .then((user)=>{
+//     console.log(user.message);
+//     return getUserProfile(user.id)
+// })
+// .then((profile)=>{
+//     console.log('Profile',profile);
+//     return getUserPosts(profile.userID)
+// })
+// .then((post)=>{
+//     console.log('Post: ',post);
+// })
+// .catch((error)=>{
+//     console.log('Error',error);
+// })
+
 // callback hell : minimum 3 level mai 
 // function loginUser(username,callback){
 //     setTimeout(()=>{
