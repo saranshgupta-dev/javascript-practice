@@ -1,3 +1,139 @@
+//Logical assignment operator 
+// &&= AND Assign : agar variable truthy hai , tabhi new value assign hogi
+// let val = true
+// val &&= false  // here true mai false assign ho jayega 
+// console.log(val); // but false mai true assign nhi hoga
+
+// let user = {name : "aman", isActive : true}
+// user.isActive &&= false
+// console.log(user.isActive);
+//  ||= OR Assign : true return karta hai 
+// let username = ""
+// console.log(username ||= 'Guest'); // OR truthy print hoga
+
+// let score = 50
+// console.log(score ||= 100); // 50 dega
+
+// ??= Nullish Assign : null or undefined hone par right side ka output deta hai\
+// let name = undefined
+// console.log(name ?? 'Guest'); // Guest
+// console.log(10 ?? 20); // 10
+// console.log(null ?? 0); // 0
+// console.log(true ?? false); // true
+// console.log(false ?? true); // false first value return karega 
+
+// let config  = {theme: null,fontsize : 14}
+// config.theme ??= 'blue'
+// config.fontsize ??= 18
+// console.log(config.fontsize); // fontsize change nhi hua because null/ undefined nhi tha
+// console.log(config.theme);
+
+// isLoggedin = true
+// {isLoggedin && <Dashboard/>} // loggin hone par Dashboard show hoga
+
+// const isLoggedin = true
+// isLoggedin && console.log('welcome back!'); // welcome back
+// let user = {name:'saransh'}
+// user && user.name && console.log(user.name); // name print hua only
+
+// && Operator 
+// console.log(1 && 2 && 3); // 3 last truthy value dega 
+// console.log(1 && 0 && 2); // 0 par ruk jayega esko only falsy value chahiye
+// console.log('a' && 'b'); // b output hoga last truthy 
+
+// function greet(name){
+//     name = name || 'Guest'
+//     console.log('Hello' , name);
+// }
+// greet() // if name = undefined then 'Guest' print hoga
+// greet('saransh') // name = 'saransh' so first truthy value print hoga
+
+// console.log(0 || 'fallback'); // fallback
+// console.log('aman' || 'Guest'); // aman
+// console.log(null || undefined || 5); // 5
+
+// console.log(10 || 20); // first truthy element return karega
+// console.log(10 && 20); // last truthy element return karega 
+// let result = false && console.log('Hello'); // && false return karta hai 
+// let re = true || console.log('hello'); // first element is true ko return karta hai
+// console.log(re);
+
+// let user = {name:'saransh'}
+// console.log(user.address?.name ?? 'city is not available'); // right side wala output
+// console.log(user.address?.name); // undefined
+
+// Nullish coalcing - OR Operator 
+// const count = 0
+// console.log(count || 10); // 10
+// console.log(count ?? 10); // 0
+
+// const text = ""
+// console.log(text || 'default'); // default
+// console.log(text ?? 'default'); // ""
+
+// console.log(0 || 100); // 100 return because 0 is falsy
+// console.log(0 ?? 100); // 0 left side return karega always if not null / undefined ho toh
+
+// let hum = undefined
+// console.log(hum || ''); // OR mai '' falsy hai toh last falsy value return kiya 
+// console.log(hum ?? ''); // '' output beacuse null or undefined return nhi karta ye
+
+// let name = ''
+// console.log(name || 'guest'); // guest because '' it is falsy value
+// console.log(name ?? 'guest'); // '' it is not null or undefined 
+
+// ||(OR) : it returns always truthy values 
+// let fuck = ""
+// console.log(fuck||'lelo mera') // lelo mera because ""(empty string is falsy)
+// Nullish coalecing
+// let name = ""
+// let result = name ?? 'fuck'
+// console.log(result);
+
+// Nullish coalecing
+// let name = null
+// console.log(name ?? 'Guest'); // null ?? Guest = Guest 
+
+// const age = 0
+// console.log(age ?? 18); // 0 (0 is value , null/undefined nahi hai ) 
+
+// Array k eindex ke sath optional chaining
+// let arr = null
+// console.log(arr?.[0]); // undefined only
+// console.log(arr[0]);// TypeError
+
+// Optional chaining : Function ke sath 
+// const obj = {
+//     greet(){console.log('Hi');}
+// }
+// obj.greet?.() // call function using optional chaining
+// console.log(obj.saybyy?.()); // it return undefined
+
+// Optional Chaining : error reduce karne mai madat karta hai
+// const data = {
+//     user : {
+//         profile : {
+//             social : {twitter : '@saransh'}
+//         }
+//     }
+// }
+// console.log(data.user.profile.social.twitter); // @saransh
+// console.log(data.user?.profile?.social?.twitter); // @saransh
+// console.log(data.user?.twitter?.data?.name); // simply : undefined ayega
+// const user = {name : 'saransh'}
+// console.log(user.address.name); // TypeError: Cannot read properties of undefined
+// console.log(user.address?.name); // ye simply : undefined return karega
+
+// let user = {
+//     name :'Rahul',
+//     address : null
+// }
+// console.log(user.address?.name);//undefined
+
+// optional chaining for Array 
+// let arr = [1]
+// console.log(arr[1]); //undefined because 1index par empty hai  
+
 // Template Literals : multiline print karne ke liye bhi use karsakte hai 
 // let name = 'saransh'
 // let age = 23
