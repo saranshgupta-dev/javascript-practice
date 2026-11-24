@@ -1,14 +1,192 @@
+// Javascript blocking main thread 
+console.log('Hello');
+alert('Click Ok button Faster Execution is waiting for your click')
+console.log('byy');
+
+// Network panel 
+// Suppose you are bulding a products listing page 
+// async function getProducts() {
+//     let response = await fetch("https://fakestoreapi.com/products")
+//     let data = await response.json()
+//     console.log(data);
+// }
+// getProducts()
+
+// function first(){
+//    second()
+// }
+// function second(){
+//     third()
+// }
+// function third(){
+//     debugger
+// }
+// first()
+
+// function calculate(){
+//     let a = 10
+//     let b = 20
+//     debugger
+//     return a + b
+// }
+// calculate()
+
+// function first(){
+//     console.log('first coming');
+//     second()
+// }
+// function second(){
+//     console.log('second coming');
+//     third()
+// }
+// function third(){
+//     console.log('third coming');
+// }
+// first()
+
+// let name = 'saransh'
+// function greet(){
+//     let age = 22
+//     console.log(name);
+//     console.log(age);
+// }
+// greet()
+// console.log(age); // yaha par error ane se next line execute nhi hue 
+// console.log(name);
+
+// Pause code using debugger keyword on our code : like that 
+// let a = 10
+// let b = 20
+// debugger
+// let result = a + b
+// console.log(result);
+
+// here we Use Paused on breakpoints to pause the code on any specific line
+// function add(a,b){
+//     let result = a + b
+//     return result
+// }
+// function calculate(){
+//     let x = 10
+//     let y = 20
+
+//     let answer = add(x,y)
+//     console.log(answer);
+// }
+// calculate()
+
+// function greet(){
+//     console.log('Hello world');
+// }
+// function welcome(){
+//     console.log('welcome');
+// }
+// console.log('start');
+// greet()
+// welcome()
+// console.log('end');
+
+// let a = 10
+// let b = 20
+// let result = a + b
+// console.log(result);
+
+// async function getProducts() {
+//     let response = await fetch( "https://fakestoreapi.com/products")
+//     let data = await response.json()
+//     // console.log(data);
+//     console.table(data)
+// }
+// getProducts()
+// console.log('this is debugger end');
+
+// let user  = {
+//     name : 'saransh',
+//     id : 101,
+//     email : 'Rahul@example.com',
+//     address : {
+//         city : 'Bhopal',
+//         country : 'India'
+//     }
+// }
+// console.group('API Response')
+// console.log('User Name',user.name);
+// console.log('User ID',user.id);
+// console.log('User Email',user.email);
+
+// console.group('Address')
+// console.log('User City',user.address.city);
+// console.log('User Country',user.address.country);
+// console.groupEnd()
+
+// console.groupEnd()
+
+// console.groupCollapsed() are similar to console.group() but group are collapsed by default 
+// groupCollapsed is feeling like object we need to open to see it's inside 
+// console.groupCollapsed('Product Details')
+// console.log('Product : Laptop');
+// console.log('Price : ₹50,000');
+// console.log('Brand : Dell');
+// console.groupEnd()
+// // the group was already opened to see it's inside 
+// console.group('User Details')
+// console.log('Name : Saransh');
+// console.log('Age : 23');
+// console.log('profession : Software Developer');
+// console.groupEnd()
+
+// Nested Using groups 
+// console.group('Application')
+// console.log('Application Started');
+// console.group('Create Account')
+// console.log('Name : Saransh Gupta');
+// console.log('email : saranshgupta807@gmail.com');
+// console.log('Phone No. : 9343632135');
+// console.groupEnd()
+// console.group('Add to Card')
+// console.log('Macbook M5');
+// console.log('Price : ₹400,000');
+// console.log('Company : Apple');
+// console.groupEnd()
+// console.log('Application Ended');
+// console.groupEnd()
+
+// without grouping the message print separtely
+// console.log('User Details');
+// console.log('Name : Saransh');
+// console.log('Age : 23');
+// console.log('city : indore');
+// // group multiple console meassage together into one expandable heading
+// console.group('User Details') // under User Details having Name , Age, City
+// console.log('Name : Rahul');
+// console.log('Age : 23');
+// console.log('City : Indore');
+// console.groupEnd()
+
+// console.group('Product Details') // Product Details it's under having Name ,Price
+// console.log('Name : Laptop');
+// console.log('Price : 50000');
+// console.groupEnd()
+
 // DevTools : developer use devtools to find error , inspect webpage and debug website 
 // DevTool contains : console , elements, application : storage , memory, sources, network
-let user = {
-    name : 'saransh',
-    age : 23,
-    address : {
-        city : 'indore',
-        state : 'MP'
-    },
-    arr : [10,20,30,40]
-}
+// let user = {
+//     name : 'saransh',
+//     age : 23,
+//     address : {
+//         city : 'indore',
+//         state : 'MP'
+//     },
+//     arr : [10,20,30,40]
+// }
+// // console.dir(user);
+// // console.log(user);
+// // inspecting DOM Element :  where it is actually usefull 
+// const heading = document.querySelector('h1')
+// console.log(heading); // <h1>Hello JavaScript</h1> : display the HTML / DOM element
+// console.dir(heading) // dir : display javascript properties as object 
+// console.dir(heading.textContent) // hello JavaScript
+// console.dir(heading.children) // HTMLCollection(0)
 
 // let arr = [10,20,30,40]
 // console.log('name');
