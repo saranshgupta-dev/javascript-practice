@@ -1,7 +1,100 @@
+let numbers = [1,2,3,2,4,2,5,1,1,1] // find the number which is come in highest times 
+let count = {}
+for(let i = 0;i<numbers.length;i++){
+   let num = numbers[i] // start num = 1 ,2,3,2,4,2,5,1,1,1
+// Object  Key = value 
+if(count[num]){
+   count[num] = count[num] + 1
+}else{
+    count[num] = 1 // num = 1 initialize kiya here 
+}
+}
+console.log(count);
+// let maxValue = -Infinity
+// let maxKey = ''
+// for(let key in count){
+//     if(count[key]>maxValue){
+//         maxValue = count[key]
+//         maxKey = key
+//     }
+// }
+// console.log(`Array Highest key is: ${maxKey} with MaxValue: ${maxValue} times Repeat`);
+
+// same highest marks of student find kiya
+// const marks = {
+//     Rahul : 92,
+//     Aman : 92,
+//     Priya : 85,
+//     Rohit : 65
+// }
+// let maxValue = -Infinity // sabse smallest possible value de 
+// let maxKey = []       // sirf key store karna jinke marks highest ho or same ho
+ 
+// for(let key in marks){
+//     if(marks[key] > maxValue ){ //  92 > -Infinity  => yes 
+//         maxValue = marks[key]     // maxValue = 92
+//     } 
+// }
+// for(let key in marks){
+//     if(marks[key] === maxValue){      // Rahul:92 === 92 or Aman:92 === 92
+//        maxKey.push(`${key}:${maxValue}`)  // array['Rahul:92','Aman:92']
+//     }
+// }
+// console.log(maxKey);
+
+// let marks = [80,90,70,85,95]
+// let total = marks.reduce((acc,currentValue)=>{
+//     return acc+currentValue/marks.length // kuch bhi mat lagao
+// },0) // accumulator ki starting value = 0 
+// console.log(total);
+
+// let marks = [70,80,90,85,95]
+// let total = marks.reduce((acc,currentValue)=>{
+//     return acc + currentValue
+// },0)
+// let avg = total / marks.length
+// console.log(avg);
+
+// let x = 10
+// x() // Seventh.js:2 Uncaught TypeError: x is not a function
+
+// console.table([{name:'saransh',id:101},{name:'sourabh',id:102}]) // yes it is working
+
+// let price  = 100
+// let quantity = 2 
+// debugger          // Watch panel 100 * 2 = 200
+// price = 200
+// debugger         // Watch panel 200 * 2 = 400
+// quantity = 3
+// debugger         // Watch panel 200 * 3 = 600
+
+// let cart = [
+//     {name:'Lapto',Price:50000},
+//     {name:'Mobile',Price:20000}
+// ]
+// let total = 0
+// for(let items of cart){
+//     total += items.Price
+//     debugger
+// }
+
+// Testing Watch Panel 
+// let user = {
+//     name : 'saransh',
+//     age : 23
+// }
+// let bonus = 5
+// debugger
+// user.age = 22
+// debugger
+// user.age = user.age + bonus
+// debugger
+// console.log(user.age);
+
 // Javascript blocking main thread 
-console.log('Hello');
-alert('Click Ok button Faster Execution is waiting for your click')
-console.log('byy');
+// console.log('Hello');
+// alert('Click Ok button Faster Execution is waiting for your click')
+// console.log('byy');
 
 // Network panel 
 // Suppose you are bulding a products listing page 
