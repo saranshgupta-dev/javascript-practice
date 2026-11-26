@@ -1,15 +1,16 @@
-let numbers = [1,2,3,2,4,2,5,1,1,1] // find the number which is come in highest times 
-let count = {}
-for(let i = 0;i<numbers.length;i++){
-   let num = numbers[i] // start num = 1 ,2,3,2,4,2,5,1,1,1
-// Object  Key = value 
-if(count[num]){
-   count[num] = count[num] + 1
-}else{
-    count[num] = 1 // num = 1 initialize kiya here 
-}
-}
-console.log(count);
+// let numbers = [1,2,3,2,4,2,5,1,1,1] // find the number which is come in highest times 
+// let count = {}
+// for(let i = 0;i<numbers.length;i++){
+//    let num = numbers[i] // start num = 1 ,2,3,2,4,2,5,1,1,1
+// // Object  Key = value 
+// if(count[num]){
+//    count[num] = count[num] + 1
+// }else{
+//     count[num] = 1 // num = 1 initialize kiya here 
+// }
+// }
+// console.log(count);
+// solution 01 : using chatgpt  
 // let maxValue = -Infinity
 // let maxKey = ''
 // for(let key in count){
@@ -27,6 +28,33 @@ console.log(count);
 //     Priya : 85,
 //     Rohit : 65
 // }
+// using one for...in loop if , else if se
+// let maxValue = -Infinity
+// let maxKey = []
+// for(let keys in marks){
+//     if(marks[keys]>maxValue){
+//         maxValue = marks[keys]
+//         maxKey = [keys]
+//     }else if(marks[keys] === maxValue){
+//         maxKey.push(keys)
+//     }
+// }
+// console.log(maxKey);
+
+// Using one for...in loop  two if conditions se 
+// let maxValue = -Infinity
+// let maxKey = []
+// for(let key in marks){
+//     if(marks[key]>maxValue){
+//        maxValue = marks[key]
+//     }
+//     if(marks[key] === maxValue){
+//         maxKey.push(key)
+//     }
+// }
+// console.log(maxKey);
+
+// Using two for...In loop to solve this problem 
 // let maxValue = -Infinity // sabse smallest possible value de 
 // let maxKey = []       // sirf key store karna jinke marks highest ho or same ho
  
